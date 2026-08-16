@@ -134,3 +134,34 @@ fig.tight_layout(rect=(0, 0.045, 1, 1))
 fig.savefig(OUT / "figure3_influence_maps.png", dpi=300, bbox_inches="tight")
 fig.savefig(OUT / "figure3_influence_maps.pdf", bbox_inches="tight")
 print("wrote", OUT / "figure3_influence_maps.png")
+
+# ---- Standalone single-panel versions (3a challenge, 3b solution) ----------
+# Same panels, same run — regenerated together with the combined figure so
+# the three outputs can never drift apart. Gives layout freedom in the doc.
+def proxy_handles():
+    dot = dict(marker="o", ls="", markersize=7)
+    return ([mlines.Line2D([], [], color=BLUE, markeredgecolor="white", **dot),
+             mlines.Line2D([], [], color=YELLOW, markeredgecolor=YELLOW_EDGE,
+                           **dot),
+             mlines.Line2D([], [], color="#9a9a9a", lw=1.1, marker=">",
+                           markersize=5, markevery=(1, 1)),
+             mlines.Line2D([], [], color=BLUE, lw=1.1, ls=(0, (4, 3)),
+                           alpha=0.75),
+             mlines.Line2D([], [], color=YELLOW_EDGE, lw=1.1, ls=(0, (4, 3)),
+                           alpha=0.75)],
+            ["Expert (N&J)", "LLM (Claude)",
+             r"Displacement (expert $\rightarrow$ LLM)",
+             "Expert median thresholds", "LLM median thresholds"])
+
+for system, title, stem in (("challenge", "Challenge system", "figure3a_challenge"),
+                            ("solution", "Solution system", "figure3b_solution")):
+    f1, a1 = plt.subplots(figsize=(7.8, 7.6))
+    panel(a1, system, title)
+    a1.set_ylabel("Influence (weighted out-degree, normalized)")
+    h, l = proxy_handles()
+    f1.legend(h, l, loc="lower center", ncol=3, frameon=False, fontsize=8.2,
+              bbox_to_anchor=(0.5, -0.005))
+    f1.tight_layout(rect=(0, 0.075, 1, 1))
+    f1.savefig(OUT / f"{stem}.png", dpi=300, bbox_inches="tight")
+    f1.savefig(OUT / f"{stem}.pdf", bbox_inches="tight")
+    print("wrote", OUT / f"{stem}.png")
