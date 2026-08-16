@@ -30,8 +30,8 @@ decisions inline.
 
 ## 3. Administrative gates
 
-- [ ] Transfer to (or fork under) the org/account the team wants on record,
-      if not `cfb3`.
+- [x] Transfer to the org/account the team wants on record — transferred
+      from `cfb3` to `OWS-PFMS` on 2026-08-16.
 - [ ] License check: MIT for code confirmed by all three authors; add a data
       license statement (e.g., CC BY 4.0) for the releasable data files.
 - [ ] Mint an archival DOI (Zenodo–GitHub integration) at acceptance and add
