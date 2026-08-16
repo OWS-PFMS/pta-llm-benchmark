@@ -1,0 +1,26 @@
+loop,length,total_weight,score
+O&M -> Sustainability -> O&M,2,72,35.705
+O&M -> Sustainability -> Capacity Building -> O&M,3,107,28.373
+O&M -> Sustainability -> Community Finance -> O&M,3,103,27.852
+O&M -> Sustainability -> Govt / External Finance -> O&M,3,99,27.402
+O&M -> Sustainability -> Community / Users -> O&M,3,82,25.135
+O&M -> Sustainability -> Politics -> O&M,3,76,24.218
+O&M -> Sustainability -> Community / Users -> Service Performance -> O&M,4,110,22.54
+O&M -> Sustainability -> Community / Users -> Community Finance -> O&M,4,115,21.679
+O&M -> Sustainability -> Community / Users -> Capacity Building -> O&M,4,110,21.562
+O&M -> Sustainability -> Govt / External Finance -> Capacity Building -> O&M,4,117,21.533
+O&M -> Sustainability -> Community Finance -> Govt / External Finance -> O&M,4,119,21.344
+O&M -> Sustainability -> Politics -> Capacity Building -> O&M,4,109,21.308
+O&M -> Sustainability -> Capacity Building -> Community Finance -> O&M,4,111,21.276
+O&M -> Sustainability -> Politics -> Community Finance -> O&M,4,109,21.175
+O&M -> Sustainability -> Govt / External Finance -> Service Performance -> O&M,4,98,21.014
+O&M -> Sustainability -> Govt / External Finance -> Infrastructure -> O&M,4,114,20.917
+O&M -> Sustainability -> Community / Users -> Govt / External Finance -> O&M,4,103,20.87
+O&M -> Sustainability -> Community / Users -> Infrastructure -> O&M,4,107,20.795
+O&M -> Sustainability -> Politics -> Govt / External Finance -> O&M,4,104,20.702
+O&M -> Sustainability -> Capacity Building -> Govt / External Finance -> O&M,4,101,20.6
+O&M -> Sustainability -> Community Finance -> Infrastructure -> O&M,4,98,20.315
+O&M -> Sustainability -> Community / Users -> Community Management -> O&M,4,104,20.237
+O&M -> Sustainability -> Politics -> Infrastructure -> O&M,4,98,20.231
+O&M -> Sustainability -> Community / Users -> Service Performance -> Community Finance -> O&M,5,136,20.125
+O&M -> Sustainability -> Community / Users -> Service Performance -> Govt / External Finance -> O&M,5,134,19.945

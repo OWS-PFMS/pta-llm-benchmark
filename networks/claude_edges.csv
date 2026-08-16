@@ -1,0 +1,454 @@
+cause,effect,system,weight,stmt_pos,stmt_neg
+Service Performance,Service Performance,challenge,91,101,47
+Infrastructure,Service Performance,challenge,87,109,45
+Community / Users,Service Performance,challenge,85,70,60
+Community / Users,Community / Users,challenge,73,68,44
+Service Performance,Community / Users,challenge,53,40,35
+Infrastructure,Community / Users,challenge,51,48,19
+Environmental,Service Performance,challenge,47,22,45
+O&M,Service Performance,challenge,47,49,13
+Govt / External Finance,Infrastructure,challenge,46,37,10
+Infrastructure,Infrastructure,challenge,43,43,13
+Govt / External Finance,Service Performance,challenge,41,37,9
+Govt Management,Service Performance,challenge,38,36,10
+Community / Users,Infrastructure,challenge,37,20,22
+O&M,O&M,challenge,36,38,7
+Infrastructure,O&M,challenge,31,30,3
+Community / Users,O&M,challenge,30,27,6
+Coordination,Service Performance,challenge,29,27,8
+Community / Users,Sustainability,challenge,28,18,15
+Community Management,O&M,challenge,27,19,11
+Service Performance,Infrastructure,challenge,27,20,9
+Community Management,Sustainability,challenge,26,21,7
+O&M,Sustainability,challenge,25,15,12
+Environmental,Infrastructure,challenge,24,13,13
+Govt Management,Infrastructure,challenge,24,20,5
+Service Performance,Sustainability,challenge,23,15,10
+Coordination,Coordination,challenge,22,16,10
+Community Management,Service Performance,challenge,21,20,2
+Govt / External Finance,Sustainability,challenge,20,13,9
+Govt Management,O&M,challenge,19,15,5
+Govt Management,Sustainability,challenge,19,15,6
+Coordination,Sustainability,challenge,18,18,2
+Govt / External Finance,O&M,challenge,18,14,5
+Infrastructure,Sustainability,challenge,18,13,7
+O&M,Infrastructure,challenge,18,14,6
+Community / Users,Environmental,challenge,17,11,7
+Environmental,Community / Users,challenge,17,15,4
+Planning,Service Performance,challenge,17,17,4
+Community Finance,Service Performance,challenge,16,11,5
+Coordination,Infrastructure,challenge,16,13,4
+Govt Management,Community / Users,challenge,16,12,4
+Service Performance,Environmental,challenge,16,13,3
+Community Management,Community Management,challenge,15,14,3
+Govt Management,Monitoring,challenge,15,11,7
+Community Finance,O&M,challenge,14,12,3
+Community Management,Infrastructure,challenge,13,9,4
+Govt Management,Govt Management,challenge,13,10,4
+Community Finance,Infrastructure,challenge,12,9,3
+Environmental,Environmental,challenge,12,6,7
+Govt / External Finance,Community / Users,challenge,12,10,2
+Monitoring,Service Performance,challenge,12,9,3
+Community / Users,Community Management,challenge,11,11,1
+Govt Management,Govt / External Finance,challenge,11,6,6
+Monitoring,Monitoring,challenge,11,10,2
+Community Management,Govt / External Finance,challenge,10,7,4
+Environmental,Sustainability,challenge,10,5,6
+Laws + Regulations,Infrastructure,challenge,10,4,6
+Monitoring,Sustainability,challenge,10,10,0
+Service Performance,O&M,challenge,10,9,1
+Capacity Building,Community / Users,challenge,9,9,0
+Infrastructure,Environmental,challenge,9,7,3
+Planning,Community / Users,challenge,9,8,1
+Private Sector,Service Performance,challenge,9,5,4
+Capacity Building,O&M,challenge,8,8,1
+Community Finance,Community Finance,challenge,8,10,1
+Community Finance,Sustainability,challenge,8,7,1
+Community Management,Community / Users,challenge,8,6,2
+Govt / External Finance,Govt / External Finance,challenge,8,6,3
+Laws + Regulations,Service Performance,challenge,8,5,3
+Planning,Infrastructure,challenge,8,7,1
+Politics,Community Management,challenge,8,1,8
+Capacity Building,Service Performance,challenge,7,4,3
+Community / Users,Community Finance,challenge,7,5,3
+Community / Users,Govt / External Finance,challenge,7,5,2
+Community / Users,Private Sector,challenge,7,4,3
+Coordination,Community / Users,challenge,7,5,2
+Coordination,Govt / External Finance,challenge,7,8,0
+Coordination,Planning,challenge,7,8,0
+Laws + Regulations,Sustainability,challenge,7,4,3
+Monitoring,Infrastructure,challenge,7,7,1
+Service Performance,Community Finance,challenge,7,3,4
+Capacity Building,Infrastructure,challenge,6,5,1
+Capacity Building,Sustainability,challenge,6,5,1
+Community / Users,Coordination,challenge,6,4,3
+Community Finance,Govt / External Finance,challenge,6,2,4
+Community Management,Capacity Building,challenge,6,3,3
+Community Management,Community Finance,challenge,6,3,3
+Community Management,Monitoring,challenge,6,5,1
+Infrastructure,Monitoring,challenge,6,5,1
+O&M,Community / Users,challenge,6,5,1
+Politics,Govt Management,challenge,6,2,5
+Capacity Building,Community Management,challenge,5,5,0
+Community / Users,Planning,challenge,5,4,1
+Community Finance,Community / Users,challenge,5,4,1
+Community Management,Govt Management,challenge,5,4,2
+Coordination,Community Management,challenge,5,4,1
+Govt Management,Community Management,challenge,5,4,2
+Laws + Regulations,Community / Users,challenge,5,4,1
+Service Performance,Govt Management,challenge,5,3,2
+Community / Users,Capacity Building,challenge,4,3,1
+Community / Users,Govt Management,challenge,4,2,2
+Community Finance,Community Management,challenge,4,2,2
+Community Management,Coordination,challenge,4,5,0
+Coordination,O&M,challenge,4,4,0
+Govt / External Finance,Capacity Building,challenge,4,4,0
+Govt Management,Community Finance,challenge,4,1,3
+Govt Management,Coordination,challenge,4,4,2
+Govt Management,Laws + Regulations,challenge,4,3,1
+Govt Management,Planning,challenge,4,2,3
+Laws + Regulations,Laws + Regulations,challenge,4,3,1
+Monitoring,Community / Users,challenge,4,2,2
+Monitoring,Community Management,challenge,4,3,1
+Monitoring,O&M,challenge,4,3,1
+O&M,Community Finance,challenge,4,2,2
+O&M,Govt / External Finance,challenge,4,1,3
+O&M,Govt Management,challenge,4,2,2
+Planning,Sustainability,challenge,4,3,2
+Politics,Service Performance,challenge,4,2,2
+Private Sector,Community / Users,challenge,4,4,0
+Private Sector,Infrastructure,challenge,4,2,2
+Private Sector,O&M,challenge,4,2,2
+Private Sector,Private Sector,challenge,4,3,3
+Community / Users,Monitoring,challenge,3,2,1
+Coordination,Monitoring,challenge,3,3,0
+Govt / External Finance,Community Finance,challenge,3,2,1
+Govt / External Finance,Community Management,challenge,3,0,3
+Govt / External Finance,Environmental,challenge,3,3,0
+Govt / External Finance,Planning,challenge,3,2,1
+Govt Management,Capacity Building,challenge,3,1,2
+Govt Management,Environmental,challenge,3,2,1
+Infrastructure,Capacity Building,challenge,3,3,0
+Infrastructure,Govt / External Finance,challenge,3,1,2
+Infrastructure,Planning,challenge,3,2,1
+Laws + Regulations,Monitoring,challenge,3,3,0
+Monitoring,Community Finance,challenge,3,2,1
+Monitoring,Coordination,challenge,3,3,0
+Monitoring,Govt / External Finance,challenge,3,3,0
+Monitoring,Govt Management,challenge,3,2,1
+Politics,Community Finance,challenge,3,0,3
+Politics,O&M,challenge,3,0,3
+Private Sector,Sustainability,challenge,3,2,1
+Service Performance,Govt / External Finance,challenge,3,2,1
+Service Performance,Planning,challenge,3,2,1
+Capacity Building,Capacity Building,challenge,2,2,0
+Community Finance,Govt Management,challenge,2,2,0
+Coordination,Laws + Regulations,challenge,2,2,0
+Environmental,Govt Management,challenge,2,1,1
+Environmental,O&M,challenge,2,2,0
+Govt / External Finance,Coordination,challenge,2,0,2
+Govt / External Finance,Govt Management,challenge,2,2,0
+Govt / External Finance,Monitoring,challenge,2,1,1
+Infrastructure,Community Management,challenge,2,0,3
+Infrastructure,Coordination,challenge,2,1,1
+Infrastructure,Govt Management,challenge,2,1,1
+Laws + Regulations,Community Management,challenge,2,1,1
+Monitoring,Planning,challenge,2,1,1
+O&M,Community Management,challenge,2,2,0
+O&M,Planning,challenge,2,0,2
+Planning,Coordination,challenge,2,1,1
+Planning,Planning,challenge,2,2,0
+Politics,Community / Users,challenge,2,1,1
+Politics,Sustainability,challenge,2,0,2
+Private Sector,Capacity Building,challenge,2,2,0
+Private Sector,Community Management,challenge,2,1,1
+Capacity Building,Coordination,challenge,1,1,0
+Capacity Building,Govt / External Finance,challenge,1,1,0
+Capacity Building,Govt Management,challenge,1,1,0
+Capacity Building,Monitoring,challenge,1,1,0
+Capacity Building,Planning,challenge,1,1,0
+Community Finance,Coordination,challenge,1,1,0
+Community Finance,Laws + Regulations,challenge,1,1,0
+Community Finance,Monitoring,challenge,1,0,1
+Community Finance,Planning,challenge,1,0,1
+Community Finance,Private Sector,challenge,1,1,0
+Community Management,Environmental,challenge,1,1,0
+Community Management,Planning,challenge,1,1,0
+Community Management,Private Sector,challenge,1,0,1
+Coordination,Capacity Building,challenge,1,1,0
+Coordination,Community Finance,challenge,1,1,0
+Coordination,Environmental,challenge,1,1,0
+Coordination,Govt Management,challenge,1,1,0
+Coordination,Private Sector,challenge,1,0,1
+Environmental,Community Finance,challenge,1,0,1
+Environmental,Planning,challenge,1,1,0
+Govt / External Finance,Private Sector,challenge,1,0,1
+Govt Management,Private Sector,challenge,1,0,1
+Infrastructure,Community Finance,challenge,1,1,0
+Infrastructure,Private Sector,challenge,1,1,0
+Laws + Regulations,Community Finance,challenge,1,0,1
+Laws + Regulations,Govt / External Finance,challenge,1,1,0
+Laws + Regulations,Govt Management,challenge,1,1,0
+Laws + Regulations,O&M,challenge,1,1,0
+Laws + Regulations,Politics,challenge,1,0,1
+Monitoring,Capacity Building,challenge,1,1,0
+Monitoring,Laws + Regulations,challenge,1,1,0
+O&M,Capacity Building,challenge,1,0,1
+O&M,Monitoring,challenge,1,1,0
+O&M,Private Sector,challenge,1,1,0
+Planning,Community Finance,challenge,1,1,0
+Planning,Environmental,challenge,1,1,0
+Planning,Govt / External Finance,challenge,1,0,1
+Planning,Govt Management,challenge,1,1,0
+Planning,O&M,challenge,1,1,0
+Planning,Private Sector,challenge,1,1,0
+Politics,Capacity Building,challenge,1,0,1
+Politics,Coordination,challenge,1,0,1
+Politics,Environmental,challenge,1,0,1
+Politics,Infrastructure,challenge,1,1,0
+Politics,Monitoring,challenge,1,0,1
+Politics,Planning,challenge,1,0,1
+Politics,Politics,challenge,1,0,1
+Private Sector,Govt / External Finance,challenge,1,1,0
+Private Sector,Laws + Regulations,challenge,1,0,1
+Private Sector,Planning,challenge,1,0,1
+Private Sector,Politics,challenge,1,0,1
+Service Performance,Capacity Building,challenge,1,0,1
+Service Performance,Community Management,challenge,1,0,1
+Service Performance,Coordination,challenge,1,1,0
+Service Performance,Politics,challenge,1,1,0
+Service Performance,Private Sector,challenge,1,0,1
+Sustainability,Govt / External Finance,challenge,1,0,1
+Sustainability,Infrastructure,challenge,1,0,1
+Infrastructure,Service Performance,solution,95,121,30
+Service Performance,Service Performance,solution,88,112,28
+Community / Users,Community / Users,solution,80,97,24
+Coordination,Service Performance,solution,73,106,4
+Service Performance,Community / Users,solution,63,66,26
+Coordination,Coordination,solution,62,85,15
+Community / Users,Service Performance,solution,60,55,13
+Coordination,Sustainability,solution,56,70,0
+Coordination,Infrastructure,solution,54,59,1
+Govt Management,Service Performance,solution,47,56,4
+O&M,Service Performance,solution,46,56,10
+O&M,O&M,solution,45,58,5
+Coordination,Community / Users,solution,44,47,4
+Capacity Building,Community / Users,solution,43,47,7
+Govt / External Finance,Infrastructure,solution,42,53,0
+Infrastructure,Community / Users,solution,40,37,13
+Infrastructure,Infrastructure,solution,38,35,10
+Infrastructure,O&M,solution,37,18,27
+Coordination,Govt / External Finance,solution,33,34,7
+Govt / External Finance,Service Performance,solution,33,39,0
+Community / Users,Sustainability,solution,32,33,2
+Govt Management,Infrastructure,solution,32,40,2
+Infrastructure,Sustainability,solution,31,35,0
+Community / Users,Infrastructure,solution,30,32,2
+Capacity Building,Service Performance,solution,28,29,3
+Community Management,O&M,solution,28,30,2
+Environmental,Service Performance,solution,28,33,1
+Community / Users,O&M,solution,27,28,3
+Capacity Building,Community Management,solution,26,28,0
+Community Management,Sustainability,solution,24,28,0
+Govt / External Finance,O&M,solution,24,22,3
+Service Performance,Sustainability,solution,24,25,1
+Capacity Building,O&M,solution,23,27,1
+Monitoring,Service Performance,solution,23,23,3
+Govt Management,Govt Management,solution,22,21,3
+Govt Management,O&M,solution,22,22,0
+Capacity Building,Infrastructure,solution,21,20,1
+Community Management,Service Performance,solution,21,24,2
+Service Performance,Infrastructure,solution,21,21,1
+Community / Users,Community Management,solution,20,23,0
+Community / Users,Govt / External Finance,solution,19,16,3
+Community Management,Community Management,solution,19,22,0
+Coordination,O&M,solution,19,17,3
+Govt Management,Community / Users,solution,19,18,2
+Infrastructure,Environmental,solution,19,11,9
+Community Management,Infrastructure,solution,18,17,1
+Coordination,Capacity Building,solution,18,18,1
+Govt Management,Govt / External Finance,solution,18,17,1
+O&M,Sustainability,solution,18,16,5
+Govt Management,Sustainability,solution,17,19,0
+Capacity Building,Govt Management,solution,16,16,0
+Govt / External Finance,Govt / External Finance,solution,16,12,6
+Private Sector,O&M,solution,16,16,1
+Community Finance,Service Performance,solution,15,17,0
+Community Management,Community / Users,solution,15,14,1
+Environmental,Environmental,solution,15,14,4
+Govt Management,Coordination,solution,15,17,0
+Laws + Regulations,Laws + Regulations,solution,15,13,2
+Capacity Building,Sustainability,solution,14,14,0
+Community / Users,Coordination,solution,14,14,0
+Coordination,Govt Management,solution,14,12,2
+Coordination,Planning,solution,14,13,1
+Govt / External Finance,Sustainability,solution,14,17,0
+Service Performance,Environmental,solution,14,10,5
+Community / Users,Environmental,solution,13,8,5
+Coordination,Community Management,solution,13,14,0
+Monitoring,Infrastructure,solution,13,13,0
+Monitoring,Sustainability,solution,13,13,0
+Planning,Community / Users,solution,13,12,1
+Planning,Service Performance,solution,13,15,1
+Private Sector,Service Performance,solution,13,14,1
+Coordination,Monitoring,solution,12,13,0
+Laws + Regulations,Service Performance,solution,12,9,4
+Planning,Infrastructure,solution,12,16,0
+Community Finance,Govt / External Finance,solution,11,7,5
+Environmental,Community / Users,solution,11,7,5
+Environmental,Infrastructure,solution,11,10,2
+Govt / External Finance,Community / Users,solution,11,14,0
+Govt / External Finance,Govt Management,solution,11,11,2
+Govt Management,Monitoring,solution,11,11,0
+Capacity Building,Capacity Building,solution,10,9,1
+Govt Management,Community Management,solution,10,11,0
+Laws + Regulations,Community / Users,solution,10,5,5
+O&M,Infrastructure,solution,10,8,2
+Service Performance,Community Finance,solution,10,9,2
+Community / Users,Monitoring,solution,9,9,0
+Community / Users,Planning,solution,9,10,0
+Community Finance,O&M,solution,9,9,2
+Community Finance,Sustainability,solution,9,10,0
+Community Management,Coordination,solution,9,9,0
+Govt Management,Community Finance,solution,9,7,2
+Monitoring,Monitoring,solution,9,11,0
+O&M,Community / Users,solution,9,7,2
+Service Performance,O&M,solution,9,9,2
+Community Finance,Community Finance,solution,8,9,1
+Coordination,Environmental,solution,8,8,0
+Govt Management,Capacity Building,solution,8,8,0
+Infrastructure,Monitoring,solution,8,8,0
+Monitoring,Planning,solution,8,8,0
+Community / Users,Community Finance,solution,7,8,0
+Community / Users,Govt Management,solution,7,7,0
+Coordination,Laws + Regulations,solution,7,8,0
+Monitoring,Community Management,solution,7,7,0
+Planning,Planning,solution,7,7,0
+Service Performance,Govt / External Finance,solution,7,7,1
+Service Performance,Private Sector,solution,7,4,3
+Sustainability,Community / Users,solution,7,6,5
+Capacity Building,Environmental,solution,6,7,0
+Capacity Building,Govt / External Finance,solution,6,7,0
+Community Finance,Community / Users,solution,6,3,3
+Community Management,Capacity Building,solution,6,7,0
+Community Management,Community Finance,solution,6,7,0
+Environmental,Sustainability,solution,6,6,0
+Infrastructure,Govt Management,solution,6,6,1
+Laws + Regulations,Monitoring,solution,6,7,0
+Monitoring,Coordination,solution,6,6,0
+Monitoring,Govt / External Finance,solution,6,6,1
+Private Sector,Infrastructure,solution,6,6,0
+Private Sector,Private Sector,solution,6,7,0
+Capacity Building,Coordination,solution,5,5,0
+Capacity Building,Monitoring,solution,5,5,0
+Community / Users,Capacity Building,solution,5,5,0
+Community / Users,Laws + Regulations,solution,5,5,1
+Community Management,Govt / External Finance,solution,5,5,0
+Community Management,Planning,solution,5,5,0
+Govt / External Finance,Coordination,solution,5,5,0
+Govt Management,Planning,solution,5,5,0
+Infrastructure,Govt / External Finance,solution,5,4,1
+Infrastructure,Planning,solution,5,6,0
+Laws + Regulations,Politics,solution,5,2,4
+Monitoring,Community Finance,solution,5,5,0
+Monitoring,O&M,solution,5,5,0
+Monitoring,Private Sector,solution,5,5,1
+Planning,Sustainability,solution,5,5,0
+Service Performance,Coordination,solution,5,4,1
+Service Performance,Govt Management,solution,5,5,1
+Community / Users,Private Sector,solution,4,4,0
+Community Management,Govt Management,solution,4,3,2
+Community Management,Monitoring,solution,4,4,0
+Govt / External Finance,Capacity Building,solution,4,5,0
+Govt / External Finance,Planning,solution,4,4,0
+Infrastructure,Community Management,solution,4,3,1
+Laws + Regulations,Govt / External Finance,solution,4,3,1
+Laws + Regulations,Govt Management,solution,4,4,0
+Monitoring,Community / Users,solution,4,2,2
+O&M,Govt / External Finance,solution,4,3,2
+Private Sector,Sustainability,solution,4,4,0
+Capacity Building,Community Finance,solution,3,3,0
+Capacity Building,Laws + Regulations,solution,3,3,0
+Community Finance,Community Management,solution,3,2,1
+Community Finance,Infrastructure,solution,3,3,0
+Community Finance,Monitoring,solution,3,3,0
+Coordination,Community Finance,solution,3,3,0
+Environmental,Govt / External Finance,solution,3,2,1
+Environmental,Planning,solution,3,3,0
+Govt / External Finance,Monitoring,solution,3,3,0
+Govt Management,Environmental,solution,3,3,0
+Govt Management,Laws + Regulations,solution,3,3,1
+Govt Management,Politics,solution,3,2,1
+Govt Management,Private Sector,solution,3,3,0
+Infrastructure,Community Finance,solution,3,3,0
+Laws + Regulations,Community Management,solution,3,3,1
+Laws + Regulations,Infrastructure,solution,3,3,0
+Laws + Regulations,O&M,solution,3,2,1
+Laws + Regulations,Sustainability,solution,3,3,0
+O&M,Capacity Building,solution,3,4,0
+O&M,Govt Management,solution,3,2,1
+Planning,Capacity Building,solution,3,3,0
+Politics,Service Performance,solution,3,2,1
+Private Sector,Community / Users,solution,3,2,1
+Private Sector,Planning,solution,3,3,0
+Capacity Building,Planning,solution,2,2,0
+Community Finance,Govt Management,solution,2,2,0
+Community Management,Environmental,solution,2,1,1
+Community Management,Laws + Regulations,solution,2,1,1
+Coordination,Private Sector,solution,2,1,1
+Govt / External Finance,Community Management,solution,2,2,0
+Govt / External Finance,Private Sector,solution,2,2,0
+Infrastructure,Coordination,solution,2,2,0
+Infrastructure,Politics,solution,2,2,0
+Laws + Regulations,Coordination,solution,2,2,0
+Monitoring,Laws + Regulations,solution,2,2,0
+O&M,Community Finance,solution,2,2,0
+Planning,Community Management,solution,2,2,0
+Planning,Coordination,solution,2,2,0
+Planning,Govt / External Finance,solution,2,1,1
+Planning,Monitoring,solution,2,2,0
+Private Sector,Govt / External Finance,solution,2,3,0
+Service Performance,Community Management,solution,2,2,0
+Service Performance,Laws + Regulations,solution,2,2,0
+Service Performance,Monitoring,solution,2,2,0
+Service Performance,Planning,solution,2,2,0
+Service Performance,Politics,solution,2,1,1
+Sustainability,Infrastructure,solution,2,1,1
+Community / Users,Politics,solution,1,1,0
+Community Finance,Capacity Building,solution,1,1,0
+Community Finance,Laws + Regulations,solution,1,1,0
+Community Finance,Politics,solution,1,0,1
+Community Management,Private Sector,solution,1,1,0
+Environmental,Capacity Building,solution,1,1,0
+Environmental,Community Management,solution,1,1,0
+Environmental,Coordination,solution,1,1,0
+Environmental,Govt Management,solution,1,1,0
+Govt / External Finance,Environmental,solution,1,1,0
+Infrastructure,Capacity Building,solution,1,1,0
+Infrastructure,Private Sector,solution,1,1,0
+Laws + Regulations,Capacity Building,solution,1,1,0
+Laws + Regulations,Community Finance,solution,1,1,0
+Laws + Regulations,Environmental,solution,1,1,0
+Laws + Regulations,Planning,solution,1,1,0
+Laws + Regulations,Private Sector,solution,1,1,0
+Monitoring,Capacity Building,solution,1,1,0
+Monitoring,Environmental,solution,1,0,1
+Monitoring,Govt Management,solution,1,1,0
+O&M,Community Management,solution,1,0,1
+O&M,Coordination,solution,1,1,0
+O&M,Monitoring,solution,1,1,0
+Planning,Environmental,solution,1,0,1
+Planning,Laws + Regulations,solution,1,1,0
+Planning,O&M,solution,1,1,0
+Planning,Private Sector,solution,1,1,0
+Politics,Community / Users,solution,1,1,0
+Politics,Private Sector,solution,1,1,0
+Private Sector,Capacity Building,solution,1,1,0
+Private Sector,Community Management,solution,1,0,1
+Private Sector,Coordination,solution,1,1,0
+Private Sector,Govt Management,solution,1,0,1
+Service Performance,Capacity Building,solution,1,1,0
+Sustainability,Govt Management,solution,1,1,0
+Sustainability,Planning,solution,1,1,0
+Sustainability,Private Sector,solution,1,1,0
+Sustainability,Sustainability,solution,1,1,0

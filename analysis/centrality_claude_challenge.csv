@@ -1,0 +1,18 @@
+bin,eigenvector,influence_raw,dependence_raw,influence,dependence,out_degree,in_degree,quadrant,loop_appearances
+Service Performance,1.0,152,468,0.6056,1.0,14,15,Dynamic/Core,14839
+Community / Users,0.639,251,208,1.0,0.4444,14,15,Dynamic/Core,14729
+Infrastructure,0.5217,219,254,0.8725,0.5427,14,16,Dynamic/Core,15870
+Sustainability,0.4952,2,227,0.008,0.485,2,16,Outcome,3076
+O&M,0.3777,115,176,0.4582,0.3761,12,15,Dynamic/Core,13232
+Environmental,0.2262,104,52,0.4143,0.1111,8,9,Dynamic/Core,6013
+Community Finance,0.1062,72,42,0.2869,0.0897,13,13,Outcome,12756
+Govt / External Finance,0.0987,160,59,0.6375,0.1261,14,14,Dynamic/Core,15078
+Community Management,0.0828,135,54,0.5378,0.1154,14,13,Dynamic/Core,13236
+Govt Management,0.0824,170,39,0.6773,0.0833,15,14,Target/Leverage,14776
+Planning,0.0708,46,35,0.1833,0.0748,11,14,Incidental,11746
+Monitoring,0.0538,57,42,0.2271,0.0897,13,11,Outcome,10821
+Coordination,0.0504,103,27,0.4104,0.0577,15,11,Target/Leverage,12842
+Private Sector,0.0481,32,16,0.1275,0.0342,11,10,Incidental,10049
+Capacity Building,0.0479,46,27,0.1833,0.0577,11,11,Incidental,9861
+Politics,0.0074,34,3,0.1355,0.0064,13,3,Incidental,3092
+Laws + Regulations,0.0045,40,9,0.1594,0.0192,11,5,Incidental,4930

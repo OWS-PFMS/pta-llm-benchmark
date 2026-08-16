@@ -1,0 +1,26 @@
+loop,length,total_weight,score
+O&M -> Sustainability -> Govt / External Finance -> O&M,3,95,25.553
+Capacity Building -> O&M -> Sustainability -> Community / Users -> Capacity Building,4,134,25.04
+O&M -> Sustainability -> Infrastructure -> O&M,3,84,23.591
+Capacity Building -> O&M -> Sustainability -> Service Performance -> Community / Users -> Capacity Building,5,160,23.237
+Capacity Building -> O&M -> Sustainability -> Govt / External Finance -> Capacity Building,4,139,23.131
+O&M -> Sustainability -> Community / Users -> O&M,3,80,23.072
+O&M -> Sustainability -> Community Management -> O&M,3,79,22.638
+O&M -> Sustainability -> Private Sector -> O&M,3,79,22.559
+Capacity Building -> O&M -> Sustainability -> Private Sector -> Capacity Building,4,121,22.498
+Capacity Building -> O&M -> Sustainability -> Govt Management -> Capacity Building,4,120,22.478
+Capacity Building -> O&M -> Sustainability -> Community Management -> Capacity Building,4,118,22.466
+Capacity Building -> O&M -> Sustainability -> Infrastructure -> Capacity Building,4,116,22.37
+Monitoring -> Capacity Building -> O&M -> Sustainability -> Monitoring,4,116,22.349
+Capacity Building -> O&M -> Sustainability -> Politics -> Capacity Building,4,117,22.339
+O&M -> Sustainability -> Community Finance -> O&M,3,77,22.084
+O&M -> Sustainability -> Community / Users -> Govt / External Finance -> O&M,4,113,21.876
+Capacity Building -> O&M -> Sustainability -> Community / Users -> Community Management -> Capacity Building,5,156,21.457
+O&M -> Sustainability -> Community / Users -> Community Management -> O&M,4,117,21.334
+O&M -> Sustainability -> Service Performance -> Community / Users -> O&M,4,106,21.311
+O&M -> Sustainability -> Infrastructure -> Service Performance -> Community / Users -> O&M,5,140,20.733
+O&M -> Sustainability -> Service Performance -> Community / Users -> Govt / External Finance -> O&M,5,139,20.706
+Capacity Building -> O&M -> Sustainability -> Community / Users -> Govt / External Finance -> Capacity Building,5,157,20.674
+O&M -> Sustainability -> Community / Users -> Infrastructure -> O&M,4,104,20.487
+O&M -> Sustainability -> Service Performance -> Community / Users -> Community Management -> O&M,5,143,20.272
+Capacity Building -> O&M -> Sustainability -> Community / Users -> Govt Management -> Capacity Building,5,139,20.159

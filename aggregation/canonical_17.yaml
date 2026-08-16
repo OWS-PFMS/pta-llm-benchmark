@@ -1,0 +1,1081 @@
+# Canonical 17-bin schema — Walters/N&J Factor Binning Sheet, verbatim.
+#
+# Bin names and definitions come directly from
+# "WASH Dr_Walters Results/Factor Binning Sheet.docx.md" (Dr. Walters'
+# document). The `examples` lists are his nuanced/verbatim factors.
+# The `keywords` lists drive the same deterministic classifier used in
+# stage 4 of the original pipeline (pta/scripts/stage4_classify.py),
+# re-tuned so that every routing decision follows Dr. Walters' own
+# Factor Binning List. Where his list routes a term differently from our
+# 19-bucket schema, his routing wins. Key re-routes vs. pta/cross_case_factors.yaml:
+#
+#   spare parts, mechanics, technicians, operating costs -> O&M   (was Private Sector / Govt Finance)
+#   NGOs                                                  -> Coordination (was Private Sector)
+#   awareness, health, hygiene, education                 -> Community / Users (was Capacity Building / Hygiene bucket)
+#   community participation / ownership                   -> Community Management (was Community and Users)
+#   urbanization, town growth                             -> Planning (was Community and Users)
+#   pollution, water resources                            -> Environmental (was Solid and Liquid Waste)
+#   sanitation (service), water quality, water treatment  -> Service Performance
+#   latrines, septic tanks, dumping sites, waste treatment-> Infrastructure
+#   open defecation, improper/illegal dumping (behavior)  -> Community / Users
+#   politics restored as its own bin                      (was merged into Govt Management)
+#   national govt                                         -> Laws + Regulations (per binning list)
+#   project implementation                                -> Infrastructure (was Planning)
+#   transparency / financial accountability               -> Community Finance (was Monitoring)
+
+factors:
+
+  - name: Sustainability
+    definition: >
+      Discussions of long-term and/or sustained service delivery.
+    examples:
+      - Service Sustainability
+      - Sustainability
+      - Sustainable Services
+    keywords:
+      - sustainab
+      - water service sustainability
+      - sanitation service sustainability
+      - water and sanitation service sustainability
+      - water and sanitation sustainability
+      - sustainable water service
+      - sustainable sanitation service
+      - sustainable water and sanitation
+      - service sustainability
+      - scheme sustainability
+      - project sustainability
+      - water sustainability
+      - sanitation sustainability
+      - sustainable service
+      - sustainable scheme
+      - long-term service
+      - long-term sustain
+      - long term service
+      - durable service
+      - longevity
+      - service continuity over time
+    priority: 10
+
+  - name: Service Performance
+    definition: >
+      Elements of the day-to-day functionality of services and quality of
+      performance.
+    examples:
+      - Coverage / Access
+      - Functionality
+      - Reporting Breakdowns
+      - Response Time
+      - Sanitation
+      - Sanitation Services
+      - Service Performance
+      - Waste Dumping Trucks
+      - Water Quality
+      - Water Quantity
+      - Water Services
+    keywords:
+      - water supply
+      - water access
+      - water coverage
+      - water service
+      - water deliver
+      - water continu
+      - water reliab
+      - water provis
+      - water adequacy
+      - water shortage
+      - water scarcity
+      - water availab
+      - water quality
+      - water quantity
+      - water treatment
+      - water contaminat
+      - water pressure
+      - water flow
+      - water yield
+      - water rationing
+      - water interruption
+      - clean water
+      - safe water
+      - potable water
+      - drinking water
+      - quality water
+      - access to water
+      - access to clean
+      - access to safe
+      - access to pure
+      - functionality
+      - functioning
+      - functional
+      - non-functional
+      - nonfunctional
+      - breakdown
+      - break down
+      - downtime
+      - down-time
+      - reporting breakdown
+      - response time
+      - coverage
+      - sanitation service
+      - sanitation deliver
+      - sanitation coverage
+      - sanitation access
+      - sanitation improv
+      - sanitation problem
+      - sanitation condition
+      - sanitation status
+      - sanitation situation
+      - service deliver
+      - service quality
+      - service continu
+      - service coverage
+      - service provis
+      - service reliab
+      - service improv
+      - service access
+      - service interruption
+      - service performance
+      - service disruption
+      - water and sanitation service
+      - water storage capacity
+      - waste collection service
+      - waste management
+      - waste collect
+      - waste removal
+      - liquid waste
+      - solid waste
+      - sewage service
+      - vacuum truck
+      - dumping truck
+      - pit emptying
+      - sludge
+      - continuity of service
+      - interruption
+    priority: 20
+
+  - name: O&M
+    definition: >
+      Factors supporting the operation and management of services and repair
+      of hardware including spare parts, technicians and operating costs.
+    examples:
+      - Maintenance
+      - Management
+      - Mechanics
+      - O&M
+      - Operating Costs
+      - Operator Capacity
+      - Preventative Maintenance
+      - Rehabilitation
+      - Repairs
+      - Service Costs
+      - Service Management
+      - Spare Parts
+      - Technician / Mechanic
+      - Technicians
+    keywords:
+      - maintenance
+      - maintain
+      - repair
+      - rehabilitat
+      - operation and maintenance
+      - operations and maintenance
+      - o&m
+      - o & m
+      - spare part
+      - spare-part
+      - technician
+      - mechanic
+      - operator
+      - operating cost
+      - operational cost
+      - running cost
+      - service cost
+      - energy cost
+      - electricity cost
+      - fuel cost
+      - power cost
+      - scheme operation
+      - system operation
+      - preventive
+      - preventative
+      - servicing
+      - overhaul
+      - caretaker
+      - plumber
+      - utility management
+      - scheme management
+      - water scheme management
+      - service management
+      - system management
+      - facility management
+    priority: 30
+
+  - name: Infrastructure
+    definition: >
+      Physical infrastructure or hardware required for the delivery of
+      collecting, treating and supply of water or the collection, treatment
+      and disposal of fecal waste.
+    examples:
+      - Boreholes
+      - Communal Latrines
+      - Construction
+      - Dumping Site
+      - Electricity
+      - Energy Source
+      - Energy Type
+      - Hardware
+      - Implementation
+      - Infrastructure
+      - New Infrastructure
+      - Project Implementation
+      - Public Latrine
+      - Septic Tanks
+      - Solar
+      - Solar Power
+      - Transportation
+      - Waste Reuse
+      - Waste Treatment
+    keywords:
+      - infrastructure
+      - construction
+      - hardware
+      - borehole
+      - bore hole
+      - pipeline
+      - pipe
+      - reservoir
+      - tank
+      - well
+      - hand pump
+      - handpump
+      - water point
+      - tap
+      - kiosk
+      - water storage
+      - storage facility
+      - scheme development
+      - scheme expansion
+      - scheme construction
+      - scheme upgrade
+      - water source development
+      - source development
+      - project implementation
+      - implementation of project
+      - implementation
+      - dam
+      - dams
+      - latrine
+      - toilet
+      - septic
+      - sewer
+      - sewerage
+      - drainage
+      - dumping site
+      - dump site
+      - disposal site
+      - landfill
+      - waste treatment
+      - waste reuse
+      - treatment plant
+      - transfer station
+      - electricity
+      - power supply
+      - power outage
+      - energy source
+      - energy type
+      - solar
+      - generator
+      - transport
+      - vehicle
+      - truck
+      - equipment
+      - machinery
+      - technology
+      - facility
+      - facilities
+      - expansion
+      - drilling
+      - installation
+      - road
+    priority: 40
+
+  - name: Environmental
+    definition: >
+      Geophysical factors that affect or affected by WASH services, including
+      water resource management, availability and pollution.
+    examples:
+      - Climate
+      - Environment
+      - Geography
+      - Natural Resources
+      - Pollution
+      - Water Resources
+      - WRM
+    keywords:
+      - climate
+      - drought
+      - rainfall
+      - rain
+      - flood
+      - flooding
+      - groundwater
+      - ground water
+      - water table
+      - watershed
+      - catchment
+      - aquifer
+      - environment
+      - environmental
+      - pollution
+      - pollut
+      - natural resource
+      - water resource
+      - water source depletion
+      - source depletion
+      - water source availab
+      - water source sustainab
+      - water source protection
+      - source protection
+      - spring
+      - river
+      - lake
+      - dry season
+      - dry spell
+      - weather
+      - geography
+      - geograph
+      - terrain
+      - geology
+      - topography
+      - deforestation
+      - tree planting
+      - afforestation
+      - reforestation
+      - rainwater harvest
+      - rain water harvest
+      - water harvesting
+      - wrm
+      - siltation
+      - erosion
+      - salinity
+      - water scheme siting
+      - ecosystem
+    priority: 50
+
+  - name: Politics
+    definition: >
+      The role and influence of politicians, political will and political
+      processes.
+    examples:
+      - Politics
+      - Political Influence
+    keywords:
+      - politic
+      - political influence
+      - political will
+      - political interfer
+      - political commitment
+      - political instability
+      - politician
+      - election
+      - electoral
+      - campaign promise
+    priority: 60
+
+  - name: Community Management
+    definition: >
+      Dimensions of service management provided by the community, including
+      water user committees, user participation and ownership.
+    examples:
+      - Community Ownership
+      - Community Participation
+      - User Participation / Ownership
+      - WASH Committees
+      - WASHCO Capacity
+      - Water User Committee
+      - WUC
+    keywords:
+      - water user committee
+      - user committee
+      - washco
+      - wash committee
+      - water committee
+      - management committee
+      - water management committee
+      - water user association
+      - committee
+      - wuc
+      - community management
+      - community-based management
+      - community based management
+      - community ownership
+      - community participation
+      - community involvement
+      - community engagement
+      - user participation
+      - user ownership
+      - user involvement
+      - sense of ownership
+      - community sense of ownership
+      - ownership
+      - participation
+      - community contribution of labor
+      - community-led
+      - community led
+    priority: 70
+
+  - name: Community Finance
+    definition: >
+      Financial support mechanisms for WASH services provided by community
+      members.
+    examples:
+      - Accountability/Transparency
+      - Community Contributions
+      - Income
+      - Income of Users
+      - Maintenance Fees
+      - Management of Project Finances
+      - Savings Accounts
+      - Tariffs
+      - Transparency
+      - User Fees
+      - Willingness to Pay
+    keywords:
+      - tariff
+      - water fee
+      - user fee
+      - maintenance fee
+      - service fee
+      - fee collection
+      - revenue collection
+      - revenue generation
+      - revenue
+      - management of project finance
+      - project finance
+      - cost recovery
+      - cost-recovery
+      - willingness to pay
+      - ability to pay
+      - community contribution
+      - community financial
+      - community fund
+      - community finance
+      - community saving
+      - savings
+      - saving account
+      - water bill
+      - billing
+      - payment
+      - user income
+      - household income
+      - income of user
+      - income
+      - transparen
+      - financial accountab
+      - financial transparency
+      - financial management of the committee
+      - water charge
+      - service charge
+      - water price
+      - water cost to user
+      - affordab
+    priority: 80
+
+  - name: Govt / External Finance
+    definition: >
+      Financial support for services provided by entities external to a
+      community such as NGOs, Donors, and Regional or National Governments.
+    examples:
+      - Budget
+      - Budget Use
+      - Continuity of Support
+      - Donors
+      - External Support
+      - Finances
+      - Funding
+      - Government Budget
+      - Government Support
+      - Tax Collection
+    keywords:
+      - budget
+      - government budget
+      - govt budget
+      - donor
+      - donors
+      - government finance
+      - government funding
+      - government fund
+      - government support
+      - government subsid
+      - external funding
+      - external finance
+      - external support
+      - external assistance
+      - continuity of support
+      - funding
+      - fund allocation
+      - fund disbursement
+      - fund misappropriat
+      - fund mismanage
+      - financial resource
+      - financial support
+      - financial assistance
+      - financial constraint
+      - financial shortage
+      - financial problem
+      - financial limitation
+      - financial capacity
+      - financing
+      - finance
+      - subsidy
+      - subsidies
+      - grant
+      - investment
+      - capital allocation
+      - resource allocation
+      - resource mobiliz
+      - tax collection
+      - taxation
+      - public finance
+      - public expenditure
+      - government expenditure
+      - government allocation
+      - ngo support
+      - ngo funding
+      - ngo fund
+      - partner funding
+      - aid
+    priority: 90
+
+  - name: Govt Management
+    definition: >
+      Roles and activities performed by local, regional and national
+      governments for the planning, implementation, operations and
+      maintenance of services.
+    examples:
+      - City Admin
+      - District Govt
+      - Government
+      - Govt Capacity
+      - Institutional Capacity
+      - Local Capacity
+      - Local Govt
+      - Municipal Capacity
+      - Subcounty Govt
+      - Town Administration
+      - Woreda Capacity
+      - Woreda Government
+      - Zonal Government
+    keywords:
+      - government management
+      - government structure
+      - government oversight
+      - government capacity
+      - government commitment
+      - government attention
+      - government priorit
+      - government will
+      - government intervention
+      - government involvement
+      - government action
+      - government response
+      - government
+      - govt
+      - governance
+      - woreda
+      - district
+      - zonal
+      - zone
+      - municipal
+      - sub-county
+      - subcounty
+      - sub county
+      - town administration
+      - city administration
+      - local administration
+      - administration
+      - administrative
+      - town water
+      - utility
+      - institutional capacity
+      - local capacity
+      - office capacity
+      - sector capacity
+      - staff
+      - staffing
+      - personnel
+      - manpower
+      - man power
+      - human resource
+      - workforce
+      - employee
+      - expert
+      - professional
+      - leadership
+      - decision-making
+      - decision making
+      - bureaucra
+      - corruption
+      - mismanage
+      - officials
+      - official
+      - officer
+      - civil servant
+      - turnover
+      - retention
+      - motivation of staff
+      - incentive
+      - salary
+      - wage
+    priority: 100
+
+  - name: Capacity Building
+    definition: >
+      Training activities, community outreach, and support focused on
+      improving the capacity of users, user committees and other local actors
+      to implement WASH policies and deliver services.
+    examples:
+      - Capacity Building
+      - Capacity
+      - Mobilization
+      - Sensitization
+      - Committee Training
+      - Training
+    keywords:
+      - capacity build
+      - capacity-build
+      - capacity development
+      - capacity strengthening
+      - training
+      - train
+      - sensitiz
+      - sensitis
+      - mobiliz
+      - mobilis
+      - community mobiliz
+      - community mobilis
+      - social mobiliz
+      - awareness creation
+      - awareness raising
+      - awareness campaign
+      - creating awareness
+      - raising awareness
+      - community outreach
+      - outreach
+      - hygiene promotion
+      - hygiene education
+      - health education
+      - sanitation education
+      - public education
+      - community education
+      - education campaign
+      - educating
+      - teach
+      - workshop
+      - seminar
+      - skill development
+      - skills development
+      - skill transfer
+      - technical assistance
+      - technical support
+      - mentorship
+      - coaching
+      - capacity gap
+      - capacity of the committee
+      - committee capacity
+      - committee training
+      - behavior change communication
+      - behaviour change communication
+    priority: 110
+
+  - name: Coordination
+    definition: >
+      Coordination mechanisms, platforms and processes for collaborative work
+      including data sharing and learning.
+    examples:
+      - Coordination
+      - Duplication of Effort
+      - NGOs
+    keywords:
+      - coordinat
+      - collaborat
+      - cooperation
+      - cooperat
+      - partnership
+      - partnering
+      - partner engagement
+      - joint planning
+      - joint working
+      - working together
+      - inter-agency
+      - inter-sector
+      - inter-organiz
+      - inter-office
+      - inter-institutional
+      - intersector
+      - duplication of effort
+      - duplication
+      - information sharing
+      - data sharing
+      - experience sharing
+      - knowledge sharing
+      - learning alliance
+      - multi-sector
+      - multi-stakeholder
+      - multi-agency
+      - networking
+      - alliance
+      - stakeholder engagement
+      - stakeholder involvement
+      - stakeholder participation
+      - stakeholder
+      - integration
+      - ngo
+      - ngos
+      - non-governmental organization
+      - nongovernmental organization
+      - wash forum
+      - wash forum participation
+      - forum participation
+      - civil society
+      - development partner
+      - synergy
+      - platform
+      - forum
+    priority: 120
+
+  - name: Community / Users
+    definition: >
+      Elements of community and end-user behavior including willingness to
+      pay, demand for services, proper use of infrastructure, health and
+      livelihoods.
+    examples:
+      - Awareness
+      - Community
+      - Health
+      - Hygiene
+      - Illegal Dumping
+      - Improper Disposal
+      - Population
+      - Proper Use
+      - Sanitation + Hygiene
+      - User Awareness
+      - User Behavior
+      - Vandalism
+      - Women
+    keywords:
+      - awareness
+      - aware
+      - community attitude
+      - community behavior
+      - community behaviour
+      - community perception
+      - community understanding
+      - community knowledge
+      - community demand
+      - community acceptance
+      - community resistance
+      - community readiness
+      - community satisfaction
+      - community trust
+      - community conflict
+      - community dependence
+      - community
+      - user behavior
+      - user behaviour
+      - user demand
+      - user attitude
+      - users
+      - user
+      - household
+      - resident
+      - citizen
+      - public
+      - population
+      - demograph
+      - migration
+      - settlement
+      - proper use
+      - improper use
+      - misuse
+      - proper utilization
+      - improper utilization
+      - vandal
+      - theft
+      - sabotage
+      - illegal dumping
+      - illegal disposal
+      - improper disposal
+      - improper waste disposal
+      - proper waste disposal
+      - waste disposal practice
+      - waste disposal behavior
+      - indiscriminate disposal
+      - open dumping
+      - littering
+      - open defecation
+      - defecation
+      - health
+      - hygiene
+      - hygienic
+      - disease
+      - illness
+      - sickness
+      - contaminat
+      - cholera
+      - diarrhea
+      - diarrhoea
+      - typhoid
+      - malaria
+      - water-borne
+      - water borne
+      - waterborne
+      - epidemic
+      - outbreak
+      - sanitation and hygiene
+      - sanitation & hygiene
+      - cleanliness
+      - clean environment
+      - education
+      - literacy
+      - school
+      - women
+      - gender
+      - youth
+      - children
+      - child
+      - elder
+      - disability
+      - disabled
+      - vulnerable
+      - poverty
+      - poor
+      - livelihood
+      - quality of life
+      - living standard
+      - wellbeing
+      - well-being
+      - farmer
+      - agriculture
+      - farming
+      - irrigation
+      - livestock
+      - cattle
+      - demand
+      - water demand
+      - customs
+      - culture
+      - cultural
+      - religion
+      - religious
+      - belief
+      - habit
+      - behavior
+      - behaviour
+      - lifestyle
+      - town image
+      - city image
+    priority: 130
+
+  - name: Planning
+    definition: >
+      Planning for current and future service delivery and hardware including
+      dimensions of urban and rural settings and population change (i.e.,
+      urbanization).
+    examples:
+      - Planning
+      - Urbanization
+      - Pre-Project Studies
+      - Urban vs. Rural
+      - Town Growth
+    keywords:
+      - planning
+      - plan implementation
+      - master plan
+      - masterplan
+      - plan
+      - project design
+      - feasibility
+      - design
+      - study
+      - studies
+      - assessment
+      - needs assessment
+      - baseline
+      - survey
+      - urbanization
+      - urbanisation
+      - urban growth
+      - town growth
+      - city growth
+      - urban expansion
+      - town expansion
+      - urban vs
+      - urban-rural
+      - rural-urban
+      - pre-project
+      - preproject
+      - project management
+      - project preparation
+      - strategy
+      - strategic
+      - prioritization
+      - prioritisation
+      - workplan
+      - work plan
+      - scheduling
+      - siting
+      - site selection
+      - phased approach
+      - future demand
+      - demand projection
+      - population projection
+      - forecasting
+    priority: 140
+
+  - name: Monitoring
+    definition: >
+      Monitoring, supervision and data collection of services and supporting
+      factors.
+    examples:
+      - Monitoring
+      - Monitoring and Evaluation
+      - Supervision + Monitoring
+      - Data
+    keywords:
+      - monitoring
+      - monitor
+      - evaluation
+      - evaluat
+      - supervision
+      - supervis
+      - oversight
+      - inspection
+      - inspect
+      - follow-up
+      - follow up
+      - tracking
+      - performance review
+      - data collection
+      - data management
+      - data availability
+      - data quality
+      - data
+      - record keeping
+      - record-keeping
+      - records
+      - reporting system
+      - reporting mechanism
+      - reporting
+      - report
+      - m&e
+      - audit
+      - accountab
+      - quality control
+      - quality assurance
+      - feedback mechanism
+      - benchmarking
+    priority: 150
+
+  - name: Laws + Regulations
+    definition: >
+      Laws, policies and regulations proposed, developed and/or implemented
+      to support service provision.
+    examples:
+      - Enforcement
+      - Laws + Regulations
+      - Policy
+      - National Govt
+      - Land Ownership
+      - Regulation
+    keywords:
+      - regulation
+      - regulatory
+      - regulat
+      - policy
+      - policies
+      - bylaw
+      - by-law
+      - by law
+      - legal
+      - law
+      - laws
+      - legislation
+      - enforcement
+      - enforce
+      - compliance
+      - licensing
+      - license
+      - permit
+      - land ownership
+      - land tenure
+      - land acquisition
+      - land allocation
+      - land issue
+      - land dispute
+      - tenure
+      - guideline
+      - standard
+      - proclamation
+      - directive
+      - statute
+      - mandate
+      - ordinance
+      - penalty
+      - penalt
+      - fine
+      - sanction
+      - national government
+      - national govt
+      - federal government
+      - rule
+      - rules
+    priority: 160
+
+  - name: Private Sector
+    definition: >
+      Role and actions of private sector entities in developing and
+      supporting services.
+    examples:
+      - Businesses
+      - Economy
+      - Local Enterprises
+      - Private Sector
+      - Water Service Provider
+      - Whave
+    keywords:
+      - private sector
+      - private operator
+      - private provider
+      - private company
+      - private investor
+      - private investment
+      - private financing
+      - private participation
+      - private partnership
+      - public-private
+      - public private
+      - business
+      - enterprise
+      - entrepreneur
+      - company
+      - companies
+      - vendor
+      - contractor
+      - supplier
+      - supply chain
+      - procurement
+      - market
+      - economy
+      - economic
+      - commercial
+      - service provider
+      - water service provider
+      - whave
+      - shop
+      - trader
+      - investor
+      - job creation
+      - employment opportunit
+    priority: 170
+
+factor_count: 17

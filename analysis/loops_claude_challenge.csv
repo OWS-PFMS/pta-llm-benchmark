@@ -1,0 +1,26 @@
+loop,length,total_weight,score
+Service Performance -> Community / Users -> Service Performance,2,138,59.434
+Service Performance -> Infrastructure -> Service Performance,2,114,50.542
+Service Performance -> Community / Users -> Infrastructure -> Service Performance,3,177,46.723
+Service Performance -> Infrastructure -> Community / Users -> Service Performance,3,163,43.891
+Govt / External Finance -> Infrastructure -> Service Performance -> Govt / External Finance,3,136,37.098
+Govt / External Finance -> Infrastructure -> Service Performance -> Community / Users -> Govt / External Finance,4,193,36.389
+Govt / External Finance -> Infrastructure -> Community / Users -> Service Performance -> Govt / External Finance,4,185,35.471
+O&M -> Infrastructure -> Service Performance -> Community / Users -> O&M,4,188,35.397
+Service Performance -> Environmental -> Infrastructure -> Service Performance,3,127,34.38
+Service Performance -> Community / Users -> Environmental -> Infrastructure -> Service Performance,4,181,34.308
+Service Performance -> Community / Users -> Sustainability -> Infrastructure -> Service Performance,4,169,33.814
+Service Performance -> Environmental -> Infrastructure -> Community / Users -> Service Performance,4,176,33.432
+Service Performance -> Community / Users -> Govt Management -> Infrastructure -> Service Performance,4,168,33.429
+O&M -> Infrastructure -> Service Performance -> O&M,3,115,33.389
+Service Performance -> Govt Management -> Infrastructure -> Service Performance,3,116,33.311
+Service Performance -> Environmental -> Community / Users -> Service Performance,3,118,33.161
+Service Performance -> Sustainability -> Infrastructure -> Service Performance,3,111,32.97
+O&M -> Infrastructure -> Community / Users -> Service Performance -> O&M,4,164,32.689
+Service Performance -> Govt Management -> Infrastructure -> Community / Users -> Service Performance,4,165,32.63
+Service Performance -> Community / Users -> Coordination -> Infrastructure -> Service Performance,4,162,32.379
+Service Performance -> Sustainability -> Infrastructure -> Community / Users -> Service Performance,4,160,32.375
+Community Management -> Infrastructure -> Service Performance -> Community / Users -> Community Management,4,164,32.14
+Service Performance -> Community / Users -> Community Finance -> Infrastructure -> Service Performance,4,159,31.968
+Service Performance -> Govt Management -> Community / Users -> Service Performance,3,106,31.879
+Service Performance -> Coordination -> Infrastructure -> Service Performance,3,104,31.799

@@ -1,0 +1,16 @@
+﻿I1: In your opinion, what do you think is working well for Kamuli to ensure that our boreholes are consistently providing clean water?
+I2: How are boreholes helping your daily life?
+R: Boreholes have improved mine and my children’s lives by allowing us access to clean water. 
+I2: In your opinion, what do you think has sustained the working boreholes in your area?
+R: Regular maintenances. Also, community members have so far regularly paid the maintenance fees to ensure this is done. 
+I2: In your opinion, what do you believe is the biggest hindrance we face trying to maintain our boreholes and distribute clean water in our area? 
+R: People who do not want to pay regular maintenance fees but still want to “steal” the water at the borehole. 
+I2: What solutions do you believe would help such a situation and such people?
+R: I honestly have no idea. As professionals, you are in the best position to advise on this. 
+I2: What solution would you think would turn around the maintenance of boreholes and positively change clean water distribution in your area? 
+R: People regularly and earnestly paying the fees required to maintain our boreholes. 
+I2: How do you think we can encourage people to do this? 
+R: Community leaders and citizens need to stand together so we can find a way to better collect money required for borehole maintenance. 
+I2: Is the current borehole maintenance being done well according to you?
+R: Yes. Because it is well maintained. We have clean water now. 
+I2: Thank you for submissions today. 

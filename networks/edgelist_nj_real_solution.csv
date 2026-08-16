@@ -1,0 +1,209 @@
+From,To,Weight
+Capacity Building,O&M,62
+Community / Users,Community / Users,60
+O&M,Sustainability,52
+Coordination,Govt / External Finance,45
+Coordination,Sustainability,40
+Govt / External Finance,O&M,40
+Service Performance,Community / Users,40
+Capacity Building,Community Management,39
+Community Management,Sustainability,37
+Infrastructure,Service Performance,36
+Govt / External Finance,Infrastructure,34
+Capacity Building,Capacity Building,33
+Govt / External Finance,Govt / External Finance,32
+Infrastructure,O&M,31
+Capacity Building,Community / Users,29
+Coordination,Service Performance,29
+Community / Users,Sustainability,28
+Capacity Building,Community Finance,27
+Community Management,O&M,26
+Private Sector,O&M,26
+Community Finance,O&M,23
+Community / Users,Community Management,22
+Govt / External Finance,Capacity Building,22
+Govt / External Finance,Sustainability,22
+O&M,Service Performance,22
+Coordination,Community / Users,21
+Infrastructure,Sustainability,20
+O&M,O&M,20
+Community Finance,Community Finance,19
+Coordination,Infrastructure,19
+Community Finance,Govt / External Finance,18
+Community / Users,Service Performance,17
+Community Finance,Sustainability,17
+Coordination,Coordination,17
+Sustainability,Community / Users,17
+Capacity Building,Govt Management,16
+Coordination,O&M,16
+Environmental,Environmental,16
+Infrastructure,Infrastructure,16
+Community Management,Community Finance,15
+Laws + Regulations,Community Finance,15
+Capacity Building,Sustainability,14
+Environmental,Service Performance,14
+Govt / External Finance,Service Performance,14
+Monitoring,Sustainability,14
+Govt Management,Govt / External Finance,12
+Infrastructure,Community / Users,12
+Infrastructure,Environmental,12
+Planning,Sustainability,12
+Community / Users,O&M,11
+Community Management,Service Performance,11
+Govt / External Finance,Govt Management,11
+Govt Management,O&M,11
+Monitoring,O&M,11
+Coordination,Govt Management,10
+Govt Management,Community Management,10
+Monitoring,Service Performance,10
+Planning,Service Performance,10
+Coordination,Planning,9
+Monitoring,Community Finance,9
+Private Sector,Sustainability,9
+Community Management,Community Management,8
+Coordination,Community Management,8
+Govt / External Finance,Community Management,8
+Govt Management,Coordination,8
+Service Performance,Service Performance,8
+Govt / External Finance,Private Sector,7
+Govt Management,Monitoring,7
+Laws + Regulations,Infrastructure,7
+Laws + Regulations,O&M,7
+Planning,Environmental,7
+Planning,Infrastructure,7
+Community / Users,Environmental,6
+Community Management,Community / Users,6
+Environmental,Sustainability,6
+Govt / External Finance,Community / Users,6
+Govt Management,Community / Users,6
+Govt Management,Infrastructure,6
+Govt Management,Service Performance,6
+Govt Management,Sustainability,6
+Infrastructure,Community Finance,6
+Private Sector,Capacity Building,6
+Community Finance,Community Management,5
+Community Finance,Private Sector,5
+Coordination,Capacity Building,5
+Coordination,Environmental,5
+Govt / External Finance,Planning,5
+Govt Management,Capacity Building,5
+Laws + Regulations,Politics,5
+Monitoring,Infrastructure,5
+O&M,Community Finance,5
+O&M,Govt / External Finance,5
+O&M,Monitoring,5
+Service Performance,Sustainability,5
+Capacity Building,Service Performance,4
+Community / Users,Community Finance,4
+Community / Users,Govt / External Finance,4
+Community / Users,Infrastructure,4
+Community Management,Govt / External Finance,4
+Community Management,Govt Management,4
+Community Management,Planning,4
+Govt / External Finance,Monitoring,4
+Infrastructure,Govt / External Finance,4
+Laws + Regulations,Capacity Building,4
+Laws + Regulations,Monitoring,4
+Laws + Regulations,Private Sector,4
+Planning,O&M,4
+Private Sector,Community Finance,4
+Private Sector,Service Performance,4
+Capacity Building,Environmental,3
+Capacity Building,Monitoring,3
+Community / Users,Capacity Building,3
+Community / Users,Govt Management,3
+Community Finance,Monitoring,3
+Community Management,Capacity Building,3
+Community Management,Infrastructure,3
+Environmental,Govt / External Finance,3
+Environmental,O&M,3
+Govt / External Finance,Coordination,3
+Govt Management,Community Finance,3
+Govt Management,Govt Management,3
+Infrastructure,Community Management,3
+Infrastructure,Monitoring,3
+Laws + Regulations,Community Management,3
+Laws + Regulations,Coordination,3
+Laws + Regulations,Sustainability,3
+Monitoring,Community Management,3
+O&M,Community / Users,3
+O&M,Community Management,3
+Planning,Community / Users,3
+Planning,Coordination,3
+Politics,Coordination,3
+Private Sector,Community / Users,3
+Private Sector,Community Management,3
+Private Sector,Govt / External Finance,3
+Sustainability,Govt / External Finance,3
+Sustainability,Service Performance,3
+Community / Users,Planning,2
+Community / Users,Private Sector,2
+Community Finance,Infrastructure,2
+Coordination,Community Finance,2
+Coordination,Laws + Regulations,2
+Coordination,Monitoring,2
+Environmental,Infrastructure,2
+Govt / External Finance,Community Finance,2
+Govt / External Finance,Environmental,2
+Govt Management,Laws + Regulations,2
+Laws + Regulations,Community / Users,2
+Laws + Regulations,Govt / External Finance,2
+Laws + Regulations,Planning,2
+Monitoring,Govt / External Finance,2
+Monitoring,Planning,2
+O&M,Environmental,2
+Politics,Sustainability,2
+Private Sector,Monitoring,2
+Service Performance,Govt Management,2
+Service Performance,O&M,2
+Service Performance,Private Sector,2
+Sustainability,Community Finance,2
+Sustainability,Politics,2
+Capacity Building,Govt / External Finance,1
+Capacity Building,Infrastructure,1
+Capacity Building,Laws + Regulations,1
+Capacity Building,Politics,1
+Capacity Building,Private Sector,1
+Community / Users,Coordination,1
+Community / Users,Laws + Regulations,1
+Community / Users,Monitoring,1
+Community Finance,Planning,1
+Community Finance,Service Performance,1
+Community Management,Coordination,1
+Community Management,Environmental,1
+Community Management,Private Sector,1
+Coordination,Politics,1
+Coordination,Private Sector,1
+Environmental,Community / Users,1
+Govt / External Finance,Laws + Regulations,1
+Govt / External Finance,Politics,1
+Govt Management,Planning,1
+Govt Management,Private Sector,1
+Infrastructure,Capacity Building,1
+Laws + Regulations,Govt Management,1
+Laws + Regulations,Laws + Regulations,1
+Laws + Regulations,Service Performance,1
+Monitoring,Capacity Building,1
+Monitoring,Community / Users,1
+Monitoring,Environmental,1
+Monitoring,Govt Management,1
+Monitoring,Laws + Regulations,1
+O&M,Capacity Building,1
+O&M,Govt Management,1
+O&M,Private Sector,1
+Planning,Community Finance,1
+Planning,Community Management,1
+Politics,Capacity Building,1
+Politics,Community / Users,1
+Politics,Community Finance,1
+Politics,Govt / External Finance,1
+Politics,O&M,1
+Politics,Planning,1
+Politics,Private Sector,1
+Private Sector,Govt Management,1
+Private Sector,Infrastructure,1
+Sustainability,Community Management,1
+Sustainability,Govt Management,1
+Sustainability,Infrastructure,1
+Sustainability,Monitoring,1
+Sustainability,Private Sector,1
