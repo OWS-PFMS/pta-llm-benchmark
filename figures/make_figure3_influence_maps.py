@@ -121,8 +121,14 @@ import matplotlib.lines as mlines
 handles.append(mlines.Line2D([], [], color="#9a9a9a", lw=1.1, marker=">",
                              markersize=5, markevery=(1, 1)))
 labels.append(r"Displacement (expert $\rightarrow$ LLM)")
-fig.legend(handles, labels, loc="lower center", ncol=3, frameon=False,
-           fontsize=9, bbox_to_anchor=(0.5, -0.015))
+handles.append(mlines.Line2D([], [], color=BLUE, lw=1.1, ls=(0, (4, 3)),
+                             alpha=0.75))
+labels.append("Expert median thresholds")
+handles.append(mlines.Line2D([], [], color=YELLOW_EDGE, lw=1.1,
+                             ls=(0, (4, 3)), alpha=0.75))
+labels.append("LLM median thresholds")
+fig.legend(handles, labels, loc="lower center", ncol=5, frameon=False,
+           fontsize=8.6, bbox_to_anchor=(0.5, -0.015))
 fig.tight_layout(rect=(0, 0.045, 1, 1))
 
 fig.savefig(OUT / "figure3_influence_maps.png", dpi=300, bbox_inches="tight")
