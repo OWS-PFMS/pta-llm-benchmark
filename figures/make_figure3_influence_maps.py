@@ -52,12 +52,14 @@ def panel(ax, system, title):
     nj, cl = load(system)
     factors = nj.index.tolist()
 
-    # Per-coder median-split thresholds (normalized units).
-    for df, color in ((nj, BLUE), (cl, YELLOW_EDGE)):
-        ax.axvline(df["dependence"].median(), color=color, lw=0.8, ls=(0, (4, 3)),
-                   alpha=0.35, zorder=1)
-        ax.axhline(df["influence"].median(), color=color, lw=0.8, ls=(0, (4, 3)),
-                   alpha=0.35, zorder=1)
+    # Single quadrant crosshair (per Jeff, 2026-08-16): the drawn lines are
+    # the midpoint of the two coders' median splits — a visual delineation of
+    # the four quadrants. Each network's exact classification threshold is
+    # its own median (§2.6); near-boundary factors are discussed in §3.3.
+    xq = (nj["dependence"].median() + cl["dependence"].median()) / 2
+    yq = (nj["influence"].median() + cl["influence"].median()) / 2
+    ax.axvline(xq, color="#b3b3b3", lw=0.9, ls=(0, (4, 3)), zorder=1)
+    ax.axhline(yq, color="#b3b3b3", lw=0.9, ls=(0, (4, 3)), zorder=1)
 
     # Displacement arrows expert -> LLM.
     for f in factors:
@@ -69,9 +71,9 @@ def panel(ax, system, title):
                     zorder=2)
 
     ax.scatter(nj["dependence"], nj["influence"], s=52, color=BLUE,
-               edgecolor="white", linewidth=0.8, zorder=3, label="Expert (N&J)")
+               edgecolor="white", linewidth=0.8, zorder=3, label="Expert coders")
     ax.scatter(cl["dependence"], cl["influence"], s=52, color=YELLOW,
-               edgecolor=YELLOW_EDGE, linewidth=0.9, zorder=3, label="LLM (Claude)")
+               edgecolor=YELLOW_EDGE, linewidth=0.9, zorder=3, label="LLM")
 
     # One label per factor, anchored to the displacement midpoint, repelled
     # from marks, with a leader line back to the anchor and a white halo so
@@ -101,7 +103,7 @@ def panel(ax, system, title):
     ax.text(0.02, 1.075, "LEVERAGE", ha="left", **lab)
     ax.text(1.06, 1.075, "DYNAMIC", ha="right", **lab)
     ax.text(1.06, -0.115, "OUTCOME", ha="right", **lab)
-    ax.text(0.02, -0.115, "INCIDENTAL", ha="left", **lab)
+    ax.text(0.02, -0.115, "AUTONOMOUS", ha="left", **lab)
 
     ax.set_title(title, fontsize=11, color=INK, pad=14, fontweight="bold")
     ax.set_xlabel("Dependence (weighted in-degree, normalized)")
@@ -120,15 +122,11 @@ handles, labels = axes[0].get_legend_handles_labels()
 import matplotlib.lines as mlines
 handles.append(mlines.Line2D([], [], color="#9a9a9a", lw=1.1, marker=">",
                              markersize=5, markevery=(1, 1)))
-labels.append(r"Displacement (expert $\rightarrow$ LLM)")
-handles.append(mlines.Line2D([], [], color=BLUE, lw=1.1, ls=(0, (4, 3)),
-                             alpha=0.75))
-labels.append("Expert median thresholds")
-handles.append(mlines.Line2D([], [], color=YELLOW_EDGE, lw=1.1,
-                             ls=(0, (4, 3)), alpha=0.75))
-labels.append("LLM median thresholds")
-fig.legend(handles, labels, loc="lower center", ncol=5, frameon=False,
-           fontsize=8.6, bbox_to_anchor=(0.5, -0.015))
+labels.append(r"Displacement (experts $\rightarrow$ LLM)")
+handles.append(mlines.Line2D([], [], color="#b3b3b3", lw=1.1, ls=(0, (4, 3))))
+labels.append("Quadrant boundaries")
+fig.legend(handles, labels, loc="lower center", ncol=4, frameon=False,
+           fontsize=9, bbox_to_anchor=(0.5, -0.015))
 fig.tight_layout(rect=(0, 0.045, 1, 1))
 
 fig.savefig(OUT / "figure3_influence_maps.png", dpi=300, bbox_inches="tight")
@@ -145,13 +143,10 @@ def proxy_handles():
                            **dot),
              mlines.Line2D([], [], color="#9a9a9a", lw=1.1, marker=">",
                            markersize=5, markevery=(1, 1)),
-             mlines.Line2D([], [], color=BLUE, lw=1.1, ls=(0, (4, 3)),
-                           alpha=0.75),
-             mlines.Line2D([], [], color=YELLOW_EDGE, lw=1.1, ls=(0, (4, 3)),
-                           alpha=0.75)],
-            ["Expert (N&J)", "LLM (Claude)",
-             r"Displacement (expert $\rightarrow$ LLM)",
-             "Expert median thresholds", "LLM median thresholds"])
+             mlines.Line2D([], [], color="#b3b3b3", lw=1.1, ls=(0, (4, 3)))],
+            ["Expert coders", "LLM",
+             r"Displacement (experts $\rightarrow$ LLM)",
+             "Quadrant boundaries"])
 
 for system, title, stem in (("challenge", "Challenge system", "figure3a_challenge"),
                             ("solution", "Solution system", "figure3b_solution")):
@@ -165,3 +160,18 @@ for system, title, stem in (("challenge", "Challenge system", "figure3a_challeng
     f1.savefig(OUT / f"{stem}.png", dpi=300, bbox_inches="tight")
     f1.savefig(OUT / f"{stem}.pdf", bbox_inches="tight")
     print("wrote", OUT / f"{stem}.png")
+
+# ---- Vertically stacked combined version (per Jeff: stacked + larger) ------
+figs, axs = plt.subplots(2, 1, figsize=(8.8, 13.6))
+panel(axs[0], "challenge", "Challenge system")
+panel(axs[1], "solution", "Solution system")
+for a in axs:
+    a.set_ylabel("Influence (weighted out-degree, normalized)")
+h, l = proxy_handles()
+figs.legend(h, l, loc="lower center", ncol=2, frameon=False, fontsize=9,
+            bbox_to_anchor=(0.5, -0.002))
+figs.tight_layout(rect=(0, 0.035, 1, 1), h_pad=2.6)
+figs.savefig(OUT / "figure3_influence_maps_stacked.png", dpi=300,
+             bbox_inches="tight")
+figs.savefig(OUT / "figure3_influence_maps_stacked.pdf", bbox_inches="tight")
+print("wrote", OUT / "figure3_influence_maps_stacked.png")

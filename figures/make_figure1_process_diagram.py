@@ -27,16 +27,16 @@ ax.set_ylim(0, 78)
 ax.axis("off")
 
 def box(x, y, w, title, lines, sub=None, fc="white", ec=EDGE, tc=INK,
-        dashed=False, title_size=9.8, body_size=8.0):
+        dashed=False, title_size=11.2, body_size=9.2):
     """Draw a box sized to its content; returns (x, y_bottom, w, h)."""
-    step = 2.55 if body_size < 8 else 2.95
-    h = 3.4 + step * (len(lines) + (1 if sub else 0)) + 1.4
+    step = body_size * 0.365
+    h = 3.6 + step * (len(lines) + (1 if sub else 0)) + 1.5
     y0 = y - h  # y is the TOP of the box
     ax.add_patch(FancyBboxPatch(
         (x, y0), w, h, boxstyle="round,pad=0.6,rounding_size=1.4",
         facecolor=fc, edgecolor=ec, linewidth=1.2,
         linestyle=(0, (5, 3)) if dashed else "solid", zorder=2))
-    cy = y - 2.9
+    cy = y - 3.1
     ax.text(x + w / 2, cy, title, ha="center", va="center", fontsize=title_size,
             fontweight="bold", color=tc, zorder=3)
     if sub:
@@ -55,7 +55,7 @@ def arrow(p0, p1, color=EDGE, lw=1.6, conn="arc3,rad=0"):
         connectionstyle=conn, shrinkA=1.5, shrinkB=1.5, zorder=1))
 
 # ---- Column 1: corpus -------------------------------------------------------
-corpus = box(3, 48, 23, "Interview corpus", [
+corpus = box(3, 48, 24, "Interview corpus", [
     "311 key informant interviews",
     "Rural water service sustainability",
     "Ethiopia · Uganda · Kenya",
@@ -81,7 +81,7 @@ pta = box(34, 46.5, 30, "PTA principles", [
     "Polarity · challenge/solution",
     "Traceable source excerpts",
 ], sub="Kim & Andersen (2012)", dashed=True, ec=MUTED, tc=MUTED,
-    title_size=8.8, body_size=7.4)
+    title_size=9.9, body_size=8.4)
 
 # ---- Column 3: aggregation + provenance callouts ----------------------------
 agg = box(73, 56, 25, "Factor aggregation", [
@@ -93,10 +93,9 @@ agg = box(73, 56, 25, "Factor aggregation", [
 
 wash = box(71, 75, 29, "17 cross-case factors", [
     "WASH-for-development theory:",
-    "building blocks of sustainable",
-    "rural water services",
+    "sustainability building blocks",
 ], sub="Walters et al. (2022); WASH literature", dashed=True, ec=MUTED,
-    tc=MUTED, title_size=8.8, body_size=7.4)
+    tc=MUTED, title_size=9.9, body_size=8.4)
 
 methods = box(71, 24, 29, "Established systems methods", [
     "Godet (1994) influence maps",
@@ -104,12 +103,12 @@ methods = box(71, 24, 29, "Established systems methods", [
     "Johnson (1975) cycle enumeration",
     "Gottschamer & Walters (2023) loop score",
 ], sub="Prior structural-analysis studies", dashed=True, ec=MUTED, tc=MUTED,
-    title_size=8.8, body_size=7.4)
+    title_size=9.9, body_size=8.4)
 
 # ---- Column 4: networks -> analysis -> agreement ----------------------------
 net = box(107, 71, 26, "Network construction", [
     "4 weighted directed networks:",
-    "(expert | LLM) × (challenge | solution)",
+    "expert & LLM × challenge & solution",
     "Edge weight = unique informants",
     "17 factors, self-loops zeroed",
 ], sub="§2.5", fc=GRAY_T, ec="#7d7d7d")
