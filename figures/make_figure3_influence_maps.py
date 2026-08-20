@@ -48,7 +48,9 @@ def load(system):
     cl = pd.read_csv(DATA / f"centrality_claude_{system}.csv").set_index("bin")
     return nj, cl
 
-def panel(ax, system, title):
+def panel(ax, system, title, k=1.0):
+    # k scales fonts/marks so one panel definition serves both the in-column
+    # variants and the full-landscape-page variant Jeff asked for (2026-08-20).
     nj, cl = load(system)
     factors = nj.index.tolist()
 
@@ -70,24 +72,24 @@ def panel(ax, system, title):
                                     alpha=0.75, shrinkA=4.5, shrinkB=4.5),
                     zorder=2)
 
-    ax.scatter(nj["dependence"], nj["influence"], s=52, color=BLUE,
+    ax.scatter(nj["dependence"], nj["influence"], s=52 * k**2, color=BLUE,
                edgecolor="white", linewidth=0.8, zorder=3, label="Expert coders")
-    ax.scatter(cl["dependence"], cl["influence"], s=52, color=YELLOW,
+    ax.scatter(cl["dependence"], cl["influence"], s=52 * k**2, color=YELLOW,
                edgecolor=YELLOW_EDGE, linewidth=0.9, zorder=3, label="LLM")
 
     # One label per factor, anchored to the displacement midpoint, repelled
     # from marks, with a leader line back to the anchor and a white halo so
     # labels stay readable where arrows cross.
     import matplotlib.patheffects as pe
-    halo = [pe.withStroke(linewidth=2.2, foreground="white")]
+    halo = [pe.withStroke(linewidth=2.2 * k, foreground="white")]
     texts = []
     for f in factors:
         # Anchor every label at the expert (blue) point — the arrow tail —
         # so label-to-pair association follows one consistent rule.
         xm = nj.loc[f, "dependence"] + 0.012
         ym = nj.loc[f, "influence"] + 0.012
-        texts.append(ax.text(xm, ym, SHORT.get(f, f), fontsize=7.4, color=INK,
-                             zorder=5, path_effects=halo))
+        texts.append(ax.text(xm, ym, SHORT.get(f, f), fontsize=7.4 * k,
+                             color=INK, zorder=5, path_effects=halo))
     try:
         from adjustText import adjust_text
         adjust_text(texts, ax=ax,
@@ -99,14 +101,16 @@ def panel(ax, system, title):
         pass
 
     # Quadrant corner labels (muted, uppercase, recessive).
-    lab = dict(fontsize=8, color=MUTED, style="italic", zorder=1)
+    lab = dict(fontsize=8 * k, color=MUTED, style="italic", zorder=1)
     ax.text(0.02, 1.075, "LEVERAGE", ha="left", **lab)
     ax.text(1.06, 1.075, "DYNAMIC", ha="right", **lab)
     ax.text(1.06, -0.115, "OUTCOME", ha="right", **lab)
     ax.text(0.02, -0.115, "AUTONOMOUS", ha="left", **lab)
 
-    ax.set_title(title, fontsize=11, color=INK, pad=14, fontweight="bold")
-    ax.set_xlabel("Dependence (weighted in-degree, normalized)")
+    ax.set_title(title, fontsize=11 * k, color=INK, pad=14, fontweight="bold")
+    ax.set_xlabel("Dependence (weighted in-degree, normalized)",
+                  fontsize=9 * k)
+    ax.tick_params(labelsize=9 * k)
     ax.set_xlim(-0.05, 1.09)
     ax.set_ylim(-0.15, 1.12)
     ax.spines[["top", "right"]].set_visible(False)
@@ -175,3 +179,24 @@ figs.savefig(OUT / "figure3_influence_maps_stacked.png", dpi=300,
              bbox_inches="tight")
 figs.savefig(OUT / "figure3_influence_maps_stacked.pdf", bbox_inches="tight")
 print("wrote", OUT / "figure3_influence_maps_stacked.png")
+
+# ---- Landscape full-page version (per Jeff, 2026-08-20) --------------------
+# Side-by-side panels sized so the figure prints at ~100% on a landscape
+# letter page (0.75" margins leave ~9.5" of width) with room below the plot
+# for a caption — Jeff wants figure + caption to fill the page. Fonts are
+# scaled up (k) so they are real point sizes at print, not shrunk-to-fit.
+K = 1.15
+figl, axl = plt.subplots(1, 2, figsize=(10.6, 6.9), sharey=True)
+panel(axl[0], "challenge", "Challenge system", k=K)
+panel(axl[1], "solution", "Solution system", k=K)
+axl[0].set_ylabel("Influence (weighted out-degree, normalized)",
+                  fontsize=9 * K)
+h, l = proxy_handles()
+figl.legend(h, l, loc="lower center", ncol=4, frameon=False, fontsize=9 * K,
+            bbox_to_anchor=(0.5, -0.012))
+figl.tight_layout(rect=(0, 0.05, 1, 1))
+figl.savefig(OUT / "figure3_influence_maps_landscape.png", dpi=300,
+             bbox_inches="tight")
+figl.savefig(OUT / "figure3_influence_maps_landscape.pdf",
+             bbox_inches="tight")
+print("wrote", OUT / "figure3_influence_maps_landscape.png")
