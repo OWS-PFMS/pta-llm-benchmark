@@ -56,10 +56,10 @@ def arrow(p0, p1, color=EDGE, lw=1.6, conn="arc3,rad=0"):
 
 # ---- Column 1: corpus -------------------------------------------------------
 corpus = box(3, 48, 24, "Interview corpus", [
-    "311 key informant interviews",
+    "232 key informant interviews",
     "Rural water service sustainability",
     "Ethiopia · Uganda · Kenya",
-    "232-transcript benchmark subset",
+    "drawn from a 311-interview corpus",
 ], sub="§2.1  Data", fc=GRAY_T, ec="#7d7d7d")
 
 # ---- Column 2: parallel coding lanes + PTA callout --------------------------
