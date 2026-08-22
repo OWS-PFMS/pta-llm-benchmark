@@ -104,13 +104,13 @@ def build():
 
     for i, (title, sub, ring, tint, icon) in enumerate(STEPS_1B):
         y = ys[i]
-        ax.text(0.52, y, f"0{i + 1}", fontsize=19, fontweight="bold",
-                color="#dde4e9", ha="center", va="center", zorder=2)
+        ax.text(0.52, y, f"0{i + 1}", fontsize=21, fontweight="bold",
+                color="#7f8d96", ha="center", va="center", zorder=2)
         badge(ax, sx, y, 0.48, ring, tint)
         icon(ax, sx, y, 0.50, ring)
-        ax.text(2.55, y + 0.27, title, fontsize=13, fontweight="bold",
+        ax.text(2.55, y + 0.29, title, fontsize=15, fontweight="bold",
                 color=INK, ha="left", va="center", zorder=6)
-        ax.text(2.55, y + 0.02, sub, fontsize=9.2, color=MUTED,
+        ax.text(2.55, y + 0.02, sub, fontsize=10.6, color=MUTED,
                 ha="left", va="top", linespacing=1.35, zorder=6)
 
     for y0, y1 in zip(ys[:-1], ys[1:]):
@@ -121,7 +121,7 @@ def build():
             "badges: deterministic, scripted steps —\n"
             "re-running them on the LLM's coded statements reproduces the "
             "published networks exactly.",
-            fontsize=8.6, color=MUTED, ha="center", va="center",
+            fontsize=9.6, color=MUTED, ha="center", va="center",
             linespacing=1.4, zorder=6)
 
     save(fig, "figure1b_llm_workflow")
