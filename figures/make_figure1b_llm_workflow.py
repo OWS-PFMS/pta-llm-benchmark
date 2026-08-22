@@ -5,10 +5,13 @@ Companion to the Figure 1 study-overview infographic: a step-by-step view
 of what the LLM actually does, so a reader can replicate the pipeline.
 Same hand-drawn icon set and palette as Figure 1 (imported from
 make_figure1_pictorial_variants.py, which must sit in the same directory).
-Yellow badges mark the two steps performed by the LLM itself; gray badges
-are deterministic scripted steps.
 
-Drawn at portrait print width so point sizes are true at print.
+Color encodes role (per Charles, 2026-08-22): green = the input corpus
+(not part of the process), yellow = the two steps performed by the LLM
+itself, gray = deterministic scripted steps.
+
+Two layouts from one script: the vertical numbered list, and a staged
+grid (input on top, LLM row, script row) that keeps type large.
 """
 from matplotlib.patches import Circle, FancyBboxPatch, Polygon
 
@@ -16,6 +19,9 @@ from make_figure1_pictorial_variants import (
     NEUT, NEUT_TINT, YELLOW_DARK, YELLOW_TINT, INK, MUTED,
     canvas, save, arrow, badge,
     icon_docs, icon_network, icon_quadrant)
+
+GREEN = "#3A7D44"        # input corpus (distinct from process colors)
+GREEN_TINT = "#E7F1E8"
 
 # ------------------------------------------------- icons new to this figure
 def icon_prompt(ax, cx, cy, s, c):
@@ -70,7 +76,7 @@ STEPS_1B = [
     # (title, sub, ring, tint, icon)
     ("Interview Transcripts",
      "232 WASH key-informant interviews",
-     NEUT, NEUT_TINT, icon_docs),
+     GREEN, GREEN_TINT, icon_docs),
     ("PTA Coding Prompt",
      "purposive text analysis coding rules issued to the\n"
      "LLM as a version-controlled, reproducible prompt",
@@ -117,17 +123,17 @@ def build():
         arrow(ax, (sx, y0 - 0.52), (sx, y1 + 0.52), lw=1.6, ms=12)
 
     ax.text(3.60, 0.52,
-            "Yellow badges: steps performed by the LLM (Claude).  Gray "
-            "badges: deterministic, scripted steps —\n"
-            "re-running them on the LLM's coded statements reproduces the "
-            "published networks exactly.",
+            "Green: the input corpus.  Yellow: steps performed by the LLM "
+            "(Claude).  Gray: deterministic,\nscripted steps — re-running "
+            "them on the LLM's coded statements reproduces the published "
+            "networks exactly.",
             fontsize=9.6, color=MUTED, ha="center", va="center",
             linespacing=1.4, zorder=6)
 
     save(fig, "figure1b_llm_workflow")
 
 # Sub text re-wrapped for narrow columns (same content as STEPS_1B)
-SUBS_H = [
+SUBS_G = [
     "232 WASH key-informant interviews",
     "purposive text analysis coding\nrules issued to the LLM as a\n"
     "version-controlled prompt",
@@ -141,40 +147,70 @@ SUBS_H = [
     "feedback-loop inventory",
 ]
 
-def build_horizontal():
-    """Landscape variant, in case the doc wants the workflow as a strip."""
-    W, H = 14.2, 4.4
+def build_grid():
+    """Staged-grid variant (per Charles, 2026-08-22): input corpus on top
+    (green), the two LLM-performed steps (yellow), then the three
+    deterministic script steps (gray). The legend fills the grid's empty
+    top-right cell."""
+    W, H = 8.2, 7.5
     fig, ax = canvas(W, H)
-    by = 3.0
-    xs = [1.45 + 2.30 * i for i in range(6)]
+    xs = [1.5, 4.1, 6.7]
+    by1, by2, by3 = 6.30, 4.60, 1.85
 
-    ax.plot([xs[0], xs[-1]], [by, by], color="#cfd8dc", lw=3.5, zorder=1,
-            solid_capstyle="round")
+    def num(cx, by, i):
+        ax.text(cx - 0.80, by + 0.72, f"0{i}", fontsize=17,
+                fontweight="bold", color="#7f8d96", ha="center",
+                va="center", zorder=2)
 
-    for i, (title, _, ring, tint, icon) in enumerate(STEPS_1B):
-        cx = xs[i]
-        ax.text(cx, 3.85, f"0{i + 1}", fontsize=17, fontweight="bold",
-                color="#7f8d96", ha="center", va="center", zorder=2)
+    def cell(cx, by, i, entry, sub):
+        title, _, ring, tint, icon = entry
+        num(cx, by, i)
         badge(ax, cx, by, 0.50, ring, tint)
         icon(ax, cx, by, 0.52, ring)
-        ax.text(cx, 2.16, title, fontsize=12.5, fontweight="bold",
+        ax.text(cx, by - 0.82, title, fontsize=12.5, fontweight="bold",
                 color=INK, ha="center", va="center", zorder=6)
-        ax.text(cx, 1.88, SUBS_H[i], fontsize=9.5, color=MUTED,
+        ax.text(cx, by - 1.06, sub, fontsize=9.5, color=MUTED,
                 ha="center", va="top", linespacing=1.3, zorder=6)
 
-    for x0, x1 in zip(xs[:-1], xs[1:]):
-        arrow(ax, (x0 + 0.56, by), (x1 - 0.56, by), lw=1.6, ms=12)
+    # 01 — the input, side text so the top row stays compact
+    num(xs[0], by1, 1)
+    badge(ax, xs[0], by1, 0.50, GREEN, GREEN_TINT)
+    icon_docs(ax, xs[0], by1, 0.52, GREEN)
+    ax.text(2.30, by1 + 0.15, STEPS_1B[0][0], fontsize=12.5,
+            fontweight="bold", color=INK, ha="left", va="center", zorder=6)
+    ax.text(2.30, by1 - 0.15, SUBS_G[0], fontsize=9.5, color=MUTED,
+            ha="left", va="center", zorder=6)
 
-    ax.text(W / 2, 0.44,
-            "Yellow badges: steps performed by the LLM (Claude).  Gray "
-            "badges: deterministic, scripted steps —\n"
-            "re-running them on the LLM's coded statements reproduces the "
-            "published networks exactly.",
-            fontsize=9.5, color=MUTED, ha="center", va="center",
-            linespacing=1.4, zorder=6)
+    cell(xs[0], by2, 2, STEPS_1B[1], SUBS_G[1])
+    cell(xs[1], by2, 3, STEPS_1B[2], SUBS_G[2])
+    cell(xs[0], by3, 4, STEPS_1B[3], SUBS_G[3])
+    cell(xs[1], by3, 5, STEPS_1B[4], SUBS_G[4])
+    cell(xs[2], by3, 6, STEPS_1B[5], SUBS_G[5])
 
-    save(fig, "figure1b_llm_workflow_horizontal")
+    arrow(ax, (xs[0], by1 - 0.56), (xs[0], by2 + 0.64))
+    arrow(ax, (xs[0] + 0.56, by2), (xs[1] - 0.56, by2))
+    arrow(ax, (3.58, by2 - 0.32), (1.94, by3 + 0.42), rad=0.15)
+    arrow(ax, (xs[0] + 0.56, by3), (xs[1] - 0.56, by3))
+    arrow(ax, (xs[1] + 0.56, by3), (xs[2] - 0.56, by3))
+
+    # legend in the empty top-right cell
+    keys = [(GREEN, GREEN_TINT, "input data"),
+            (YELLOW_DARK, YELLOW_TINT, "steps performed by the LLM"),
+            (NEUT, NEUT_TINT, "deterministic scripted steps")]
+    for j, (ring, tint, label) in enumerate(keys):
+        yk = by2 + 0.42 - 0.34 * j
+        ax.add_patch(Circle((5.95, yk), 0.11, facecolor=tint,
+                            edgecolor=ring, linewidth=1.6, zorder=3))
+        ax.text(6.18, yk, label, fontsize=9.5, color=INK, ha="left",
+                va="center", zorder=6)
+    ax.text(5.84, by2 - 0.62,
+            "re-running the gray steps on the\nLLM's coded statements "
+            "reproduces\nthe published networks exactly",
+            fontsize=8.8, color=MUTED, ha="left", va="top",
+            linespacing=1.3, zorder=6)
+
+    save(fig, "figure1b_llm_workflow_grid")
 
 if __name__ == "__main__":
     build()
-    build_horizontal()
+    build_grid()
