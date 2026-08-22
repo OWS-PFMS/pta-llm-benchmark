@@ -491,11 +491,12 @@ def build_v2_final():
     W, H = 10.5, 6.4
     fig, ax = canvas(W, H)
     mid = 3.2
-    F = 1.1   # font bump vs. the menu version of v2
+    F = 1.3   # font bump vs. the menu version of v2
 
     badge(ax, 1.25, mid, 0.62, NEUT, NEUT_TINT)
     icon_docs(ax, 1.25, mid, 0.64, NEUT)
-    title_sub(ax, 1.25, 2.05, "transcripts", ts=11 * F, ss=8.6 * F)
+    title_sub(ax, 1.25, 2.05, "transcripts", ts=11 * F, ss=8.6 * F,
+              gap=0.34)
 
     bx0, cxc, cxn = 2.65, 3.43, 5.38   # lane box left, coding x, network x
     bx1 = cxn + 0.78                   # lane box right
@@ -526,9 +527,9 @@ def build_v2_final():
               color=color, lw=1.5)
 
     # note sits in the gap between the two Causal Network icons
-    ax.text(cxn, 3.18, "17 shared factors · challenge & solution",
+    ax.text(cxn, 3.18, "17 shared factors\nchallenge & solution",
             fontsize=8.6 * F, color=MUTED, ha="center", va="center",
-            zorder=6)
+            linespacing=1.35, zorder=6)
 
     xa, xc = bx1 + 1.30, bx1 + 3.40
     badge(ax, xa, mid, 0.60, NEUT, NEUT_TINT)
@@ -536,13 +537,14 @@ def build_v2_final():
     ax.text(xa, 2.05, STEPS["analysis"][0], fontsize=11 * F,
             fontweight="bold", color=INK, ha="center", va="center",
             zorder=6)
-    ax.text(xa, 1.72, "centrality · quadrants\nfeedback loops",
+    ax.text(xa, 1.66, "centrality · quadrants\nfeedback loops",
             fontsize=8.6 * F, color=MUTED, ha="center", va="center",
             linespacing=1.35, zorder=6)
 
     badge(ax, xc, mid, 0.60, NEUT, "white")
     icon_compare(ax, xc, mid, 0.62)
-    title_sub(ax, xc, 2.05, "compare", ts=11 * F, ss=8.6 * F)
+    title_sub(ax, xc, 2.05, "compare", ts=11 * F, ss=8.6 * F,
+              gap=0.34)
 
     arrow(ax, (1.92, mid + 0.18), (2.60, 4.35), rad=-0.25)
     arrow(ax, (1.92, mid - 0.18), (2.60, 2.05), rad=0.25)
