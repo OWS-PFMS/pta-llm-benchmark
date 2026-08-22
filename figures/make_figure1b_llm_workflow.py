@@ -126,5 +126,55 @@ def build():
 
     save(fig, "figure1b_llm_workflow")
 
+# Sub text re-wrapped for narrow columns (same content as STEPS_1B)
+SUBS_H = [
+    "232 WASH key-informant interviews",
+    "purposive text analysis coding\nrules issued to the LLM as a\n"
+    "version-controlled prompt",
+    "cause–effect pairs with polarity,\nchallenge/solution label, and a\n"
+    "verbatim excerpt per statement",
+    "context-specific factor names\nmapped onto the 17 cross-case\n"
+    "WASH factors · deterministic rules",
+    "weighted, directed challenge &\nsolution networks: edge lists\n"
+    "and adjacency matrices",
+    "eigenvector centrality ·\ninfluence–dependence quadrants ·\n"
+    "feedback-loop inventory",
+]
+
+def build_horizontal():
+    """Landscape variant, in case the doc wants the workflow as a strip."""
+    W, H = 14.2, 4.4
+    fig, ax = canvas(W, H)
+    by = 3.0
+    xs = [1.45 + 2.30 * i for i in range(6)]
+
+    ax.plot([xs[0], xs[-1]], [by, by], color="#cfd8dc", lw=3.5, zorder=1,
+            solid_capstyle="round")
+
+    for i, (title, _, ring, tint, icon) in enumerate(STEPS_1B):
+        cx = xs[i]
+        ax.text(cx, 3.85, f"0{i + 1}", fontsize=17, fontweight="bold",
+                color="#7f8d96", ha="center", va="center", zorder=2)
+        badge(ax, cx, by, 0.50, ring, tint)
+        icon(ax, cx, by, 0.52, ring)
+        ax.text(cx, 2.16, title, fontsize=12.5, fontweight="bold",
+                color=INK, ha="center", va="center", zorder=6)
+        ax.text(cx, 1.88, SUBS_H[i], fontsize=9.5, color=MUTED,
+                ha="center", va="top", linespacing=1.3, zorder=6)
+
+    for x0, x1 in zip(xs[:-1], xs[1:]):
+        arrow(ax, (x0 + 0.56, by), (x1 - 0.56, by), lw=1.6, ms=12)
+
+    ax.text(W / 2, 0.44,
+            "Yellow badges: steps performed by the LLM (Claude).  Gray "
+            "badges: deterministic, scripted steps —\n"
+            "re-running them on the LLM's coded statements reproduces the "
+            "published networks exactly.",
+            fontsize=9.5, color=MUTED, ha="center", va="center",
+            linespacing=1.4, zorder=6)
+
+    save(fig, "figure1b_llm_workflow_horizontal")
+
 if __name__ == "__main__":
     build()
+    build_horizontal()
