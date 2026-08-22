@@ -533,7 +533,12 @@ def build_v2_final():
     xa, xc = bx1 + 1.30, bx1 + 3.40
     badge(ax, xa, mid, 0.60, NEUT, NEUT_TINT)
     icon_quadrant(ax, xa, mid, 0.60, NEUT)
-    title_sub(ax, xa, 2.05, "analysis", ts=11 * F, ss=8.6 * F)
+    ax.text(xa, 2.05, STEPS["analysis"][0], fontsize=11 * F,
+            fontweight="bold", color=INK, ha="center", va="center",
+            zorder=6)
+    ax.text(xa, 1.72, "centrality · quadrants\nfeedback loops",
+            fontsize=8.6 * F, color=MUTED, ha="center", va="center",
+            linespacing=1.35, zorder=6)
 
     badge(ax, xc, mid, 0.60, NEUT, "white")
     icon_compare(ax, xc, mid, 0.62)
