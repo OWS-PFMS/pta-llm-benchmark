@@ -187,11 +187,9 @@ def build_grid():
     cell(xs[1], by3, 5, STEPS_1B[4], SUBS_G[4])
     cell(xs[2], by3, 6, STEPS_1B[5], SUBS_G[5])
 
-    arrow(ax, (xs[0], by1 - 0.56), (xs[0], by2 + 0.64))
-    arrow(ax, (xs[0] + 0.56, by2), (xs[1] - 0.56, by2))
-    arrow(ax, (3.58, by2 - 0.32), (1.94, by3 + 0.42), rad=0.15)
-    arrow(ax, (xs[0] + 0.56, by3), (xs[1] - 0.56, by3))
-    arrow(ax, (xs[1] + 0.56, by3), (xs[2] - 0.56, by3))
+    # no arrows: the numbering and the staged rows imply the flow
+    # (per Charles, 2026-08-22 — the row-2 -> row-3 connector could not
+    # cross the text cleanly, and the numbers carry the order anyway)
 
     # legend in the empty top-right cell
     keys = [(GREEN, GREEN_TINT, "input data"),
