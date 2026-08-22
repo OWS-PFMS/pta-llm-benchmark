@@ -488,8 +488,10 @@ def build_v2_final():
     tightened. The narrower canvas means everything renders larger
     once the figure is placed at page width; fonts also get a ~10%
     bump on top."""
-    W, H = 10.5, 6.4
+    W, H = 10.5, 5.2
     fig, ax = canvas(W, H)
+    # content spans y ~1.5..5.5; crop half the dead band off top and bottom
+    ax.set_ylim(0.75, 5.95)
     mid = 3.2
     F = 1.3   # font bump vs. the menu version of v2
 
