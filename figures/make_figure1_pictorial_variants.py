@@ -478,76 +478,72 @@ def build_v5():
           (pos[5][0] + cw / 2 + 0.06, bot_y))
     save(fig, "figure1_pictorial_v5_cards")
 
-# ------------------------- v2 FINAL: Jeff's pick, portrait print size ------
+# ------------------------- v2 FINAL: Jeff's pick, tightened ----------------
 def build_v2_final():
-    """Jeff chose v2 (2026-08-21) and asked for bigger icons and bigger
-    fonts for a portrait-oriented page. This version is drawn at portrait
-    print width (~6.5 in usable), so point sizes are true at print, and
-    the two coder lanes run vertically — the page's vertical real estate
-    is what buys the larger icons and type."""
-    W, H = 6.9, 6.9
+    """Jeff chose v2 (2026-08-21). Final version keeps the original
+    horizontal-lane composition and compresses the dead width (per
+    Charles, 2026-08-22): in-lane arrows shortened to match the
+    Structural Analysis -> Benchmark Comparison arrow, lane boxes
+    narrowed, and the padding left of Coding / right of Network
+    tightened. The narrower canvas means everything renders larger
+    once the figure is placed at page width; fonts also get a ~10%
+    bump on top."""
+    W, H = 10.5, 6.4
     fig, ax = canvas(W, H)
+    mid = 3.2
+    F = 1.1   # font bump vs. the menu version of v2
 
-    # transcripts, top center
-    tx, ty = 3.45, 6.22
-    badge(ax, tx, ty, 0.44, NEUT, NEUT_TINT)
-    icon_docs(ax, tx, ty, 0.46, NEUT)
-    ax.text(tx, 5.56, STEPS["transcripts"][0], fontsize=11, fontweight="bold",
-            color=INK, ha="center", va="center", zorder=6)
-    ax.text(tx, 5.28, STEPS["transcripts"][1], fontsize=8.6, color=MUTED,
-            ha="center", va="center", zorder=6)
+    badge(ax, 1.25, mid, 0.62, NEUT, NEUT_TINT)
+    icon_docs(ax, 1.25, mid, 0.64, NEUT)
+    title_sub(ax, 1.25, 2.05, "transcripts", ts=11 * F, ss=8.6 * F)
 
-    # two vertical coder lanes
-    lane_w, lane_top, lane_bot = 2.70, 4.92, 1.90
-    lanes = [(BLUE, BLUE_TINT, 1.80, "EXPERT  ·  human benchmark",
+    bx0, cxc, cxn = 2.65, 3.43, 5.38   # lane box left, coding x, network x
+    bx1 = cxn + 0.78                   # lane box right
+    lanes = [(BLUE, BLUE_TINT, 4.55, "EXPERT  ·  human benchmark",
               icon_people),
-             (YELLOW_DARK, YELLOW_TINT, 5.10, "LLM  ·  Claude",
+             (YELLOW_DARK, YELLOW_TINT, 1.85, "LLM  ·  Claude",
               icon_sparkle)]
-    for color, tint, cx, label, coder_icon in lanes:
+    for color, tint, cy, label, coder_icon in lanes:
         ax.add_patch(FancyBboxPatch(
-            (cx - lane_w / 2, lane_bot), lane_w, lane_top - lane_bot,
+            (bx0, cy - 0.92), bx1 - bx0, 1.84,
             boxstyle="round,pad=0,rounding_size=0.18",
             facecolor=tint, edgecolor=color, linewidth=1.4, alpha=0.9,
             zorder=2))
-        ax.text(cx, lane_top - 0.30, label, fontsize=8.8, fontweight="bold",
-                color=color, ha="center", va="center", zorder=6)
-        badge(ax, cx, 4.10, 0.40, color, "white", lw=2.0)
-        coder_icon(ax, cx, 4.10, 0.40, color)
-        ax.text(cx, 3.54, "Purposive Coding", fontsize=9.8, fontweight="bold",
-                color=INK, ha="center", va="center", zorder=6)
-        arrow(ax, (cx, 3.36), (cx, 3.12), color=color, lw=1.5)
-        badge(ax, cx, 2.66, 0.40, color, "white", lw=2.0)
-        icon_network(ax, cx, 2.66, 0.42, color)
-        ax.text(cx, 2.12, "Causal Network", fontsize=9.8, fontweight="bold",
-                color=INK, ha="center", va="center", zorder=6)
+        ax.text(bx0 + 0.30, cy + 0.68, label, fontsize=8.6 * F,
+                fontweight="bold", color=color, ha="left", va="center",
+                zorder=6)
+        badge(ax, cxc, cy - 0.10, 0.44, color, "white", lw=1.8)
+        coder_icon(ax, cxc, cy - 0.10, 0.44, color)
+        ax.text(cxc, cy - 0.74, "Purposive Coding", fontsize=9.2 * F,
+                fontweight="bold", color=INK, ha="center", va="center",
+                zorder=6)
+        badge(ax, cxn, cy - 0.10, 0.44, color, "white", lw=1.8)
+        icon_network(ax, cxn, cy - 0.10, 0.46, color)
+        ax.text(cxn, cy - 0.74, "Causal Network", fontsize=9.2 * F,
+                fontweight="bold", color=INK, ha="center", va="center",
+                zorder=6)
+        arrow(ax, (cxc + 0.55, cy - 0.10), (cxn - 0.55, cy - 0.10),
+              color=color, lw=1.5)
 
-    # fork from transcripts into both lanes
-    arrow(ax, (3.10, 5.96), (1.82, 5.02), rad=-0.22)
-    arrow(ax, (3.80, 5.96), (5.08, 5.02), rad=0.22)
+    # note sits in the gap between the two Causal Network icons
+    ax.text(cxn, 3.18, "17 shared factors · challenge & solution",
+            fontsize=8.6 * F, color=MUTED, ha="center", va="center",
+            zorder=6)
 
-    # note between the convergence arrows
-    ax.text(3.45, 1.74, "17 shared factors\nchallenge & solution",
-            fontsize=8.4, color=MUTED, ha="center", va="center",
-            linespacing=1.35, zorder=6)
+    xa, xc = bx1 + 1.30, bx1 + 3.40
+    badge(ax, xa, mid, 0.60, NEUT, NEUT_TINT)
+    icon_quadrant(ax, xa, mid, 0.60, NEUT)
+    title_sub(ax, xa, 2.05, "analysis", ts=11 * F, ss=8.6 * F)
 
-    # bottom row: analysis -> comparison
-    badge(ax, 3.45, 1.06, 0.42, NEUT, NEUT_TINT)
-    icon_quadrant(ax, 3.45, 1.06, 0.42, NEUT)
-    ax.text(3.45, 0.42, STEPS["analysis"][0], fontsize=10.2,
-            fontweight="bold", color=INK, ha="center", va="center", zorder=6)
-    ax.text(3.45, 0.16, STEPS["analysis"][1], fontsize=8.4, color=MUTED,
-            ha="center", va="center", zorder=6)
+    badge(ax, xc, mid, 0.60, NEUT, "white")
+    icon_compare(ax, xc, mid, 0.62)
+    title_sub(ax, xc, 2.05, "compare", ts=11 * F, ss=8.6 * F)
 
-    badge(ax, 5.75, 1.06, 0.42, NEUT, "white")
-    icon_compare(ax, 5.75, 1.06, 0.44)
-    ax.text(5.75, 0.42, STEPS["compare"][0], fontsize=10.2,
-            fontweight="bold", color=INK, ha="center", va="center", zorder=6)
-    ax.text(5.75, 0.16, STEPS["compare"][1], fontsize=8.4, color=MUTED,
-            ha="center", va="center", zorder=6)
-
-    arrow(ax, (1.80, 1.86), (3.06, 1.34), rad=-0.20)
-    arrow(ax, (5.10, 1.86), (3.84, 1.34), rad=0.20)
-    arrow(ax, (3.92, 1.06), (5.28, 1.06))
+    arrow(ax, (1.92, mid + 0.18), (2.60, 4.35), rad=-0.25)
+    arrow(ax, (1.92, mid - 0.18), (2.60, 2.05), rad=0.25)
+    arrow(ax, (bx1 + 0.05, 4.45), (xa - 0.40, mid + 0.42), rad=-0.25)
+    arrow(ax, (bx1 + 0.05, 1.95), (xa - 0.40, mid - 0.42), rad=0.25)
+    arrow(ax, (xa + 0.65, mid), (xc - 0.62, mid))
     save(fig, "figure1_pictorial_v2_final")
 
 if __name__ == "__main__":
