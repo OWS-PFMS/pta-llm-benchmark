@@ -256,13 +256,18 @@ def build_ga():
         cell(xs[col], by, i + 1, STEPS_1B[i], SUBS_GA[i])
 
     # flow arrows (per Charles, 2026-08-23): short within-row arrows at
-    # badge height, each pointing toward the next step's number, plus a
-    # trailing "continue" arrow after 03 — the reader wraps to row 2
-    # like a line of text (unlike the grid, the uniform rows leave the
-    # horizontal lanes clear, so arrows work here)
+    # badge height, each pointing toward the next step's number (unlike
+    # the grid, the uniform rows leave the horizontal lanes clear, so
+    # arrows work here)
     for cx, by in ((xs[0], by1), (xs[1], by1), (xs[0], by2), (xs[1], by2)):
         arrow(ax, (cx + 1.45, by), (cx + 2.35, by), lw=1.8, ms=13)
-    arrow(ax, (xs[2] + 0.70, by1), (xs[2] + 1.60, by1), lw=1.8, ms=13)
+    # the wrap pair — exit after 03, pickup into 04 — reads as a text
+    # line break. Shorter than the inner connectors and outer ends
+    # aligned with the key bar's edges; same gray as every other arrow
+    # (color is reserved for the three legend roles, so these differ by
+    # length and position only)
+    arrow(ax, (11.375, by1), (12.025, by1), lw=1.8, ms=13)
+    arrow(ax, (0.10, by2), (0.75, by2), lw=1.8, ms=13)
 
     # key bar; fill is lighter than every badge tint
     ax.add_patch(FancyBboxPatch(
