@@ -209,6 +209,59 @@ def build_grid():
 
     save(fig, "figure1b_llm_workflow_grid")
 
+# Sub text tersened to single lines for the graphical abstract
+SUBS_GA = [
+    "232 WASH key-informant interviews",
+    "version-controlled & reproducible",
+    "polarity, label, verbatim excerpt",
+    "mapped to 17 cross-case factors",
+    "challenge & solution networks",
+    "centrality · quadrants · feedback loops",
+]
+
+def build_ga():
+    """Graphical-abstract variant (per Jeff, 2026-08-22): the staged grid
+    reflowed to Elsevier's 5:2 width-to-height spec — row 1 is the green
+    input plus the two yellow LLM steps, row 2 the three gray script
+    steps, legend strip along the bottom. Canvas is sized so canvas +
+    save()'s 0.25in pad lands at exactly 2.5:1 (12.625 x 5.05 in =
+    3788 x 1515 px at 300 dpi, above Elsevier's 1328 x 531 minimum;
+    readable at the 13 x 5 cm display size)."""
+    W, H = 12.125, 4.55
+    fig, ax = canvas(W, H)
+    xs = [2.02, 6.06, 10.10]
+    by1, by2 = 3.60, 1.65
+
+    def cell(cx, by, i, entry, sub):
+        title, _, ring, tint, icon = entry
+        ax.text(cx - 0.74, by + 0.56, f"0{i}", fontsize=20,
+                fontweight="bold", color="#7f8d96", ha="center",
+                va="center", zorder=2)
+        badge(ax, cx, by, 0.46, ring, tint)
+        icon(ax, cx, by, 0.48, ring)
+        ax.text(cx, by - 0.72, title, fontsize=20, fontweight="bold",
+                color=INK, ha="center", va="center", zorder=6)
+        ax.text(cx, by - 1.02, sub, fontsize=16, color=MUTED,
+                ha="center", va="center", zorder=6)
+
+    for i, (col, by) in enumerate([(0, by1), (1, by1), (2, by1),
+                                   (0, by2), (1, by2), (2, by2)]):
+        cell(xs[col], by, i + 1, STEPS_1B[i], SUBS_GA[i])
+
+    # legend strip along the bottom (no arrows: numbering + staged rows
+    # carry the flow, same argument as the grid)
+    keys = [(GREEN, GREEN_TINT, "input corpus", 2.85),
+            (YELLOW_DARK, YELLOW_TINT, "steps performed by the LLM", 4.90),
+            (NEUT, NEUT_TINT, "deterministic, replicable scripts", 8.40)]
+    for ring, tint, label, kx in keys:
+        ax.add_patch(Circle((kx, 0.30), 0.10, facecolor=tint,
+                            edgecolor=ring, linewidth=1.6, zorder=3))
+        ax.text(kx + 0.18, 0.30, label, fontsize=15, color=INK,
+                ha="left", va="center", zorder=6)
+
+    save(fig, "graphical_abstract_llm_workflow")
+
 if __name__ == "__main__":
     build()
     build_grid()
+    build_ga()
