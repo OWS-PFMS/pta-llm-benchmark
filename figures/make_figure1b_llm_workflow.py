@@ -255,8 +255,16 @@ def build_ga():
                                    (0, by2), (1, by2), (2, by2)]):
         cell(xs[col], by, i + 1, STEPS_1B[i], SUBS_GA[i])
 
-    # key bar (no arrows: numbering + staged rows carry the flow, same
-    # argument as the grid); fill is lighter than every badge tint
+    # flow arrows (per Charles, 2026-08-23): short within-row arrows at
+    # badge height, each pointing toward the next step's number, plus a
+    # trailing "continue" arrow after 03 — the reader wraps to row 2
+    # like a line of text (unlike the grid, the uniform rows leave the
+    # horizontal lanes clear, so arrows work here)
+    for cx, by in ((xs[0], by1), (xs[1], by1), (xs[0], by2), (xs[1], by2)):
+        arrow(ax, (cx + 1.45, by), (cx + 2.35, by), lw=1.8, ms=13)
+    arrow(ax, (xs[2] + 0.70, by1), (xs[2] + 1.60, by1), lw=1.8, ms=13)
+
+    # key bar; fill is lighter than every badge tint
     ax.add_patch(FancyBboxPatch(
         (0.10, 0.07), W - 0.20, 0.60,
         boxstyle="round,pad=0,rounding_size=0.10",
