@@ -223,20 +223,27 @@ def build_ga():
     """Graphical-abstract variant (per Jeff, 2026-08-22): the staged grid
     reflowed to Elsevier's 5:2 width-to-height spec — row 1 is the green
     input plus the two yellow LLM steps, row 2 the three gray script
-    steps, legend strip along the bottom. Canvas is sized so canvas +
-    save()'s 0.25in pad lands at exactly 2.5:1 (12.625 x 5.05 in =
-    3788 x 1515 px at 300 dpi, above Elsevier's 1328 x 531 minimum;
-    readable at the 13 x 5 cm display size)."""
+    steps. Canvas is sized so canvas + save()'s 0.25in pad lands at
+    exactly 2.5:1 (12.625 x 5.05 in = 3788 x 1515 px at 300 dpi, above
+    Elsevier's 1328 x 531 minimum; readable at the 13 x 5 cm display
+    size).
+
+    Legend treatment per Charles (2026-08-23): the keys sat at the
+    column rhythm right under the row-2 subs and read as belonging to
+    the cells above them, so the legend now lives on a full-width pale
+    key bar, the step numbers sit beside the badges instead of above
+    them (that seam was the other collision), the reclaimed height goes
+    to the gap over the bar, and the key group is centered by measured
+    text extents rather than by eye."""
     W, H = 12.125, 4.55
     fig, ax = canvas(W, H)
     xs = [2.02, 6.06, 10.10]
-    by1, by2 = 3.60, 1.65
+    by1, by2 = 3.99, 2.20
 
     def cell(cx, by, i, entry, sub):
         title, _, ring, tint, icon = entry
-        ax.text(cx - 0.74, by + 0.56, f"0{i}", fontsize=20,
-                fontweight="bold", color="#7f8d96", ha="center",
-                va="center", zorder=2)
+        ax.text(cx - 0.62, by, f"0{i}", fontsize=20, fontweight="bold",
+                color="#7f8d96", ha="right", va="center", zorder=2)
         badge(ax, cx, by, 0.46, ring, tint)
         icon(ax, cx, by, 0.48, ring)
         ax.text(cx, by - 0.72, title, fontsize=20, fontweight="bold",
@@ -248,16 +255,34 @@ def build_ga():
                                    (0, by2), (1, by2), (2, by2)]):
         cell(xs[col], by, i + 1, STEPS_1B[i], SUBS_GA[i])
 
-    # legend strip along the bottom (no arrows: numbering + staged rows
-    # carry the flow, same argument as the grid)
-    keys = [(GREEN, GREEN_TINT, "input corpus", 2.85),
-            (YELLOW_DARK, YELLOW_TINT, "steps performed by the LLM", 4.90),
-            (NEUT, NEUT_TINT, "deterministic, replicable scripts", 8.40)]
-    for ring, tint, label, kx in keys:
-        ax.add_patch(Circle((kx, 0.30), 0.10, facecolor=tint,
+    # key bar (no arrows: numbering + staged rows carry the flow, same
+    # argument as the grid); fill is lighter than every badge tint
+    ax.add_patch(FancyBboxPatch(
+        (0.10, 0.07), W - 0.20, 0.60,
+        boxstyle="round,pad=0,rounding_size=0.10",
+        facecolor="#F4F6F7", edgecolor="none", zorder=1))
+    ky = 0.37
+    keys = [(GREEN, GREEN_TINT, "input corpus"),
+            (YELLOW_DARK, YELLOW_TINT, "steps performed by the LLM"),
+            (NEUT, NEUT_TINT, "deterministic, replicable scripts")]
+    texts = [ax.text(0, ky, label, fontsize=14.5, color=INK,
+                     ha="left", va="center", zorder=6)
+             for _, _, label in keys]
+    fig.canvas.draw()
+    renderer = fig.canvas.get_renderer()
+    inv = ax.transData.inverted()
+    widths = []
+    for t in texts:
+        bb = t.get_window_extent(renderer)
+        widths.append(inv.transform((bb.x1, 0))[0]
+                      - inv.transform((bb.x0, 0))[0])
+    gap = 0.55
+    gx = (W - (sum(0.28 + w for w in widths) + 2 * gap)) / 2
+    for (ring, tint, _), t, w in zip(keys, texts, widths):
+        ax.add_patch(Circle((gx + 0.10, ky), 0.10, facecolor=tint,
                             edgecolor=ring, linewidth=1.6, zorder=3))
-        ax.text(kx + 0.18, 0.30, label, fontsize=15, color=INK,
-                ha="left", va="center", zorder=6)
+        t.set_x(gx + 0.28)
+        gx += 0.28 + w + gap
 
     save(fig, "graphical_abstract_llm_workflow")
 
