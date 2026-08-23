@@ -261,13 +261,11 @@ def build_ga():
     # arrows work here)
     for cx, by in ((xs[0], by1), (xs[1], by1), (xs[0], by2), (xs[1], by2)):
         arrow(ax, (cx + 1.45, by), (cx + 2.35, by), lw=1.8, ms=13)
-    # the wrap pair — exit after 03, pickup into 04 — reads as a text
-    # line break. Shorter than the inner connectors and outer ends
-    # aligned with the key bar's edges; same gray as every other arrow
-    # (color is reserved for the three legend roles, so these differ by
-    # length and position only)
-    arrow(ax, (11.375, by1), (12.025, by1), lw=1.8, ms=13)
-    arrow(ax, (0.10, by2), (0.75, by2), lw=1.8, ms=13)
+    # the 03 -> 04 wrap carries no arrow: a trailing arrow pointed at
+    # nothing, and an exit/pickup pair skewed the figure's silhouette
+    # into a parallelogram ("tilted" — Charles, 2026-08-23). The
+    # numbering and the staged rows imply that transition, as in the
+    # grid variant.
 
     # key bar; fill is lighter than every badge tint
     ax.add_patch(FancyBboxPatch(
