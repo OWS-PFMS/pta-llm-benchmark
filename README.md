@@ -48,6 +48,16 @@ python3 figures/make_figure1_process_diagram.py
 python3 tables/make_tables.py
 ```
 
+`make_figure3_influence_maps.py` emits the influence/dependence maps under
+both quadrant conventions in one run. Files without a suffix use the
+per-network median split described in §2.6; the `_grid05` files fix the
+crosshair at 0.5 on both max-normalized axes, the conventional Godet grid used
+in Walters et al. (2022), and `_grid05_minmax` additionally min–max rescales
+the scores. The two conventions classify the same underlying networks and
+differ only in where the boundaries are drawn; quadrant agreement between the
+expert and LLM codings is 11/17 (challenge) and 10/17 (solution) under the
+median split, and 8/17 and 12/17 under the fixed grid.
+
 The pipeline-stage scripts in `scripts/` (`s1`–`s6`, minus the superseded
 `s4`) are archived exactly as run in the working repository and reference its
 directory layout; they are included for audit rather than turnkey re-execution.

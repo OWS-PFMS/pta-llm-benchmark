@@ -8,7 +8,7 @@ max factor in each network, matching the manuscript's §2.6 conventions.
 Median-split quadrant thresholds are drawn per coder (dashed, series color)
 because quadrant assignment in §2.6 uses each network's own medians.
 
-Data: pta_232/centrality_{nj,claude}_{challenge,solution}.csv (verified to
+Data: analysis/centrality_{nj,claude}_{challenge,solution}.csv (verified to
 reproduce the manuscript's Spearman/quadrant values exactly).
 """
 import pandas as pd
@@ -48,18 +48,31 @@ def load(system):
     cl = pd.read_csv(DATA / f"centrality_claude_{system}.csv").set_index("bin")
     return nj, cl
 
-def panel(ax, system, title, k=1.0):
+def panel(ax, system, title, k=1.0, grid="median", scale="max"):
     # k scales fonts/marks so one panel definition serves both the in-column
     # variants and the full-landscape-page variant Jeff asked for (2026-08-20).
+    # grid:  "median" (paper; crosshair at the coders' medians, see below)
+    #        "fixed"  (conventional; crosshair at 0.5/0.5 — Walters 2022's
+    #                  "four equal quadrants", per Jeff's 2026-09-03 request)
+    # scale: "max"    (paper; each score divided by the network's max factor)
+    #        "minmax" (Walters 2022; lowest factor -> 0, highest -> 1)
     nj, cl = load(system)
+    if scale == "minmax":
+        for df in (nj, cl):
+            for col in ("influence", "dependence"):
+                lo, hi = df[col].min(), df[col].max()
+                df[col] = (df[col] - lo) / (hi - lo)
     factors = nj.index.tolist()
 
     # Single quadrant crosshair (per Jeff, 2026-08-16): the drawn lines are
     # the midpoint of the two coders' median splits — a visual delineation of
     # the four quadrants. Each network's exact classification threshold is
     # its own median (§2.6); near-boundary factors are discussed in §3.3.
-    xq = (nj["dependence"].median() + cl["dependence"].median()) / 2
-    yq = (nj["influence"].median() + cl["influence"].median()) / 2
+    if grid == "fixed":
+        xq = yq = 0.5
+    else:
+        xq = (nj["dependence"].median() + cl["dependence"].median()) / 2
+        yq = (nj["influence"].median() + cl["influence"].median()) / 2
     ax.axvline(xq, color="#b3b3b3", lw=0.9, ls=(0, (4, 3)), zorder=1)
     ax.axhline(yq, color="#b3b3b3", lw=0.9, ls=(0, (4, 3)), zorder=1)
 
@@ -108,8 +121,8 @@ def panel(ax, system, title, k=1.0):
     ax.text(0.02, -0.115, "AUTONOMOUS", ha="left", **lab)
 
     ax.set_title(title, fontsize=11 * k, color=INK, pad=14, fontweight="bold")
-    ax.set_xlabel("Dependence (weighted in-degree, normalized)",
-                  fontsize=9 * k)
+    norm = "min\u2013max normalized" if scale == "minmax" else "normalized"
+    ax.set_xlabel(f"Dependence (weighted in-degree, {norm})", fontsize=9 * k)
     ax.tick_params(labelsize=9 * k)
     ax.set_xlim(-0.05, 1.09)
     ax.set_ylim(-0.15, 1.12)
@@ -200,3 +213,49 @@ figl.savefig(OUT / "figure3_influence_maps_landscape.png", dpi=300,
 figl.savefig(OUT / "figure3_influence_maps_landscape.pdf",
              bbox_inches="tight")
 print("wrote", OUT / "figure3_influence_maps_landscape.png")
+
+# ---- Conventional 0.5/0.5 grid (per Jeff, 2026-09-03) ----------------------
+# "What would it look like with the grid unnormalized to the median, as it is
+# usually shown?" Same points, same arrows — only the crosshair moves to the
+# fixed midpoint of the [0, 1] axes (Walters 2022 / Godet: "four equal
+# quadrants"). Two flavors: (a) our max-normalized scores (the paper's axes),
+# and (b) Walters 2022's min-max rescale (lowest factor -> 0), which shifts
+# points slightly and is the literal antecedent-study convention.
+def grid05_legend():
+    h, l = proxy_handles()
+    l[-1] = "Quadrant boundaries (fixed at 0.5)"
+    return h, l
+
+for scale, stem, tag in (("max", "figure3_influence_maps_grid05", ""),
+                         ("minmax", "figure3_influence_maps_grid05_minmax",
+                          " (min\u2013max scaled, Walters 2022)")):
+    fg, ag = plt.subplots(1, 2, figsize=(14.2, 7.1), sharey=True)
+    panel(ag[0], "challenge", "Challenge system" + tag, grid="fixed",
+          scale=scale)
+    panel(ag[1], "solution", "Solution system" + tag, grid="fixed",
+          scale=scale)
+    norm = "min\u2013max normalized" if scale == "minmax" else "normalized"
+    ag[0].set_ylabel(f"Influence (weighted out-degree, {norm})")
+    h, l = grid05_legend()
+    fg.legend(h, l, loc="lower center", ncol=4, frameon=False, fontsize=9,
+              bbox_to_anchor=(0.5, -0.015))
+    fg.tight_layout(rect=(0, 0.045, 1, 1))
+    fg.savefig(OUT / f"{stem}.png", dpi=300, bbox_inches="tight")
+    fg.savefig(OUT / f"{stem}.pdf", bbox_inches="tight")
+    print("wrote", OUT / f"{stem}.png")
+
+# Stacked (Jeff's preferred in-doc layout) for the primary 0.5-grid variant.
+fgs, ags = plt.subplots(2, 1, figsize=(8.8, 13.6))
+panel(ags[0], "challenge", "Challenge system", grid="fixed")
+panel(ags[1], "solution", "Solution system", grid="fixed")
+for a in ags:
+    a.set_ylabel("Influence (weighted out-degree, normalized)")
+h, l = grid05_legend()
+fgs.legend(h, l, loc="lower center", ncol=2, frameon=False, fontsize=9,
+           bbox_to_anchor=(0.5, -0.002))
+fgs.tight_layout(rect=(0, 0.035, 1, 1), h_pad=2.6)
+fgs.savefig(OUT / "figure3_influence_maps_grid05_stacked.png", dpi=300,
+            bbox_inches="tight")
+fgs.savefig(OUT / "figure3_influence_maps_grid05_stacked.pdf",
+            bbox_inches="tight")
+print("wrote", OUT / "figure3_influence_maps_grid05_stacked.png")

@@ -3,7 +3,7 @@
 challenge comparison on the left half, solution comparison on the right.
 
 Built with python-docx (pandoc can't mix page orientations or merge header
-cells). Data comes straight from pta_232/loops_*.csv, same compaction rules
+cells). Data comes straight from analysis/loops_*.csv, same compaction rules
 as make_tables.py.
 """
 import csv

@@ -4,7 +4,7 @@
 Table 1: coding/network volume (Expert column left of LLM, per Jeff's comment).
 Table 2: cross-coder agreement metrics.
 Table 3: top-10 highest-scoring feedback loops per coder and system, built
-directly from pta_232/loops_*.csv (referenced in §3.4, currently mis-cited
+directly from analysis/loops_*.csv (referenced in §3.4, currently mis-cited
 there as "Table 2").
 """
 import csv
