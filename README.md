@@ -32,8 +32,8 @@ Target/Leverage factor in all four networks, independently for both coders.
 | `networks/` | Edge lists and adjacency matrices for all four networks: (expert \| LLM) × (challenge \| solution) | §2.5 |
 | `analysis/` | Weighted eigenvector centrality, influence/dependence + Godet quadrants, feedback-loop inventories, and the full comparison summary | §2.6, §3 |
 | `scripts/` | The pipeline stages, archived as run (see provenance note below) | §2 |
-| `figures/` | Figures 1 and 3 (PNG + vector) with the scripts that generate them | §2, §3.3 |
-| `tables/` | Tables 1–3 with the script that generates them | §3 |
+| `figures/` | Figures 1, 3 and 4 (PNG + vector) with the scripts that generate them | §2, §3.3 |
+| `tables/` | Tables 1–4 with the scripts that generate them | §3 |
 
 ## Reproducing the analysis
 
@@ -44,8 +44,10 @@ and `pandas`, `numpy`, `networkx`, `scipy`, `matplotlib` (+ `adjustText`;
 ```bash
 # Figures and tables, regenerated from the archived network/analysis CSVs:
 python3 figures/make_figure3_influence_maps.py
+python3 figures/make_figure4_shift_heatmap.py
 python3 figures/make_figure1_process_diagram.py
 python3 tables/make_tables.py
+python3 tables/make_table4_shifts.py   # imports the Figure 4 generator
 ```
 
 `make_figure3_influence_maps.py` emits the influence/dependence maps under
@@ -57,6 +59,15 @@ the scores. The two conventions classify the same underlying networks and
 differ only in where the boundaries are drawn; quadrant agreement between the
 expert and LLM codings is 11/17 (challenge) and 10/17 (solution) under the
 median split, and 8/17 and 12/17 under the fixed grid.
+
+`make_figure4_shift_heatmap.py` and `make_table4_shifts.py` render the same
+quantity two ways: the signed shift in normalized influence and dependence
+between the expert and LLM codings (LLM minus expert), for all 17 factors in
+both systems. Rows are ordered by total displacement — the combined length of
+that factor's two displacement arrows in Figure 3. The table script imports
+the figure script rather than recomputing the shifts, so the two cannot
+disagree; `table4_shifts.docx` shades its own cells with the figure's ramp and
+so stands alone as the heatmap.
 
 The pipeline-stage scripts in `scripts/` (`s1`–`s6`, minus the superseded
 `s4`) are archived exactly as run in the working repository and reference its
